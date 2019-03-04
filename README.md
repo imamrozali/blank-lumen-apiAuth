@@ -5,6 +5,7 @@
 - [1. Info](#1-info)
 - [2. Instalación](#2-instalación)
   - [2.1. Configuración](#21-configuración)
+  - [2.2. Servidor de desarrollo](#22-servidor-de-desarrollo)
 
 ---
 
@@ -48,4 +49,10 @@ Insertamos todos los datos necesarios del archivo _.env_ y después [ejecutamos 
 ```bash
 > touch database\database.sqlite
 > php artisan migrate
+```
+
+# 2.2. Servidor de desarrollo
+
+```bash
+> php -S localhost:8000 -t public
 ```
