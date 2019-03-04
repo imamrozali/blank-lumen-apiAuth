@@ -6,6 +6,7 @@
 - [2. Instalación](#2-instalación)
   - [2.1. Configuración](#21-configuración)
   - [2.2. Servidor de desarrollo](#22-servidor-de-desarrollo)
+- [Bibliografía](#bibliografía)
 
 ---
 
