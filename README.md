@@ -56,3 +56,11 @@ Insertamos todos los datos necesarios del archivo _.env_ y después [ejecutamos 
 ```bash
 > php -S localhost:8000 -t public
 ```
+
+# Bibliografía
+
+PACKAGIST (flipbox/lumen-generator). _A Lumen Generator You Are Missing_. < [https://packagist.org/packages/flipbox/lumen-generator](https://packagist.org/packages/flipbox/lumen-generator) >
+[Última consulta: 4 de marzo de 2019]
+
+LUMEN. _The stunningly fast micro-framework by Laravel_. < [https://lumen.laravel.com/](https://lumen.laravel.com/) >
+[Última consulta: 4 de marzo de 2019]
