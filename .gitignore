@@ -1,5 +1,6 @@
-/vendor
+.env
 /.idea
+/database/*.sqlite
+/vendor
 Homestead.json
 Homestead.yaml
-.env
