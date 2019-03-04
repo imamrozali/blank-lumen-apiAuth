@@ -35,7 +35,7 @@ La intención de este repositorio es la de ahorrarnos tiempo cada vez que queram
 > php artisan key:generate
 ```
 
-Insertamos todos los datos necesarios del archivo _.env_.
+Insertamos todos los datos necesarios del archivo _.env_ y después [ejecutamos las migraciones](https://laravel.com/docs/5.8/migrations#running-migrations).
 
 **Sin SQLite**
 
