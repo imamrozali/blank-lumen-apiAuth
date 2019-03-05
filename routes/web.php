@@ -13,7 +13,9 @@ $router->get('/', function () use ($router) {
 */
 
 $router->group(['prefix' => 'v1', 'namespace' => 'v1'], function () use ($router) {
-    //
+    $router->group(['prefix' => 'auth', 'namespace' => 'Auth'], function () use ($router) {
+        $router->get('register', 'RegisterController');
+    });
 });
 
 
