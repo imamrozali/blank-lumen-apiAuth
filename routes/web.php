@@ -12,7 +12,7 @@ $router->get('/', function () use ($router) {
 |
 */
 
-Route::group(['prefix' => 'v1', 'namespace' => 'v1'], function () {
+$router->group(['prefix' => 'v1', 'namespace' => 'v1'], function () use ($router) {
     //
 });
 
@@ -25,6 +25,6 @@ Route::group(['prefix' => 'v1', 'namespace' => 'v1'], function () {
 |
 */
 
-Route::group(['prefix' => 'v2', 'namespace' => 'v2'], function () {
-  //
+$router->group(['prefix' => 'v2', 'namespace' => 'v2'], function () use ($router) {
+    //
 });
