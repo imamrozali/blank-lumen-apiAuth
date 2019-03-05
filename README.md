@@ -58,6 +58,12 @@ Insertamos todos los datos necesarios del archivo _.env_ y después [ejecutamos 
 > php -S localhost:8000 -t public
 ```
 
+O también
+
+```bash
+> php artisan serve
+```
+
 # Bibliografía
 
 LARAVEL. _Single Action Controllers_. < [https://laravel.com/docs/5.8/controllers#single-action-controllers](https://laravel.com/docs/5.8/controllers#single-action-controllers) >
