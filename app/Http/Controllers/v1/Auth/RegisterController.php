@@ -23,8 +23,14 @@ class RegisterController extends Controller
      *
      */
 
-    public function __invoke()
+    public function __invoke(Request $request)
     {
-        return 'Registro';
+        $this->validate($request, [
+            'username' => 'required|string|min:3|max:15|unique:users',
+            'email'    => 'required|email|max:255|confirmed|unique:users',
+            'password' => 'required|string|min:6',
+        ]);
+
+        
     }
 }
