@@ -74,3 +74,6 @@ LUMEN. _The stunningly fast micro-framework by Laravel_. < [https://lumen.larave
 
 PACKAGIST (flipbox/lumen-generator). _A Lumen Generator You Are Missing_. < [https://packagist.org/packages/flipbox/lumen-generator](https://packagist.org/packages/flipbox/lumen-generator) >
 <br>[Última consulta: 4 de marzo de 2019]
+
+STACKOVERFLOW. _Laravel Lumen Ensure JSON response_. < [https://stackoverflow.com/questions/37296654/laravel-lumen-ensure-json-response](https://stackoverflow.com/questions/37296654/laravel-lumen-ensure-json-response) >
+<br>[Última consulta: 6 de marzo de 2019]
