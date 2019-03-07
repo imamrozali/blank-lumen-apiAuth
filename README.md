@@ -72,6 +72,12 @@ LARAVEL. _Single Action Controllers_. < [https://laravel.com/docs/5.8/controller
 LUMEN. _The stunningly fast micro-framework by Laravel_. < [https://lumen.laravel.com/](https://lumen.laravel.com/) >
 <br>[Última consulta: 4 de marzo de 2019]
 
+LUMEN. _Mail_. < [https://lumen.laravel.com/docs/5.8/mail](https://lumen.laravel.com/docs/5.8/mail) >
+<br>[Última consulta: 7 de marzo de 2019]
+
+MJML. _The only framework that makes responsive email easy_. < [https://mjml.io/](https://mjml.io/) >
+<br>[Última consulta: 7 de marzo de 2019]
+
 PACKAGIST (flipbox/lumen-generator). _A Lumen Generator You Are Missing_. < [https://packagist.org/packages/flipbox/lumen-generator](https://packagist.org/packages/flipbox/lumen-generator) >
 <br>[Última consulta: 4 de marzo de 2019]
 
