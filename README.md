@@ -89,7 +89,7 @@ Los correos electrónicos han sido generador con el framework MJML. El código p
 
 Todos los correos electrónicos se encuentran en _/resources/views/emails_.
 
-# 4.1. auth/verify-account
+## 4.1. auth/verify-account
 
 Correo electrónico enviado a través de `Mail::to($user)->send(new VerifyAccount($user));`. Utilizado para verificar la cuenta del/la usuario/ria.
 
