@@ -129,14 +129,15 @@
                   </tr>
                   <tr>
                     <td align="center" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                      <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:16px;line-height:1;text-align:center;color:#000000;"> Hello <strong>{{$username}}</strong>, confirm your email address to finish creating your "{{env('APP_NAME')}}" account. It's easy, just click the button below. </div>
+                      <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:16px;line-height:24px;text-align:center;color:#000000;"> Hello <strong>{{$username}}</strong>, confirm your email address to finish creating your {{env('APP_NAME')}} account. It's easy, just click the button below. </div>
                     </td>
                   </tr>
                   <tr>
                     <td align="center" vertical-align="middle" style="font-size:0px;padding:10px 25px;word-break:break-word;">
                       <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:separate;line-height:100%;">
                         <tr>
-                          <td align="center" bgcolor="#007BFF" role="presentation" style="border:none;border-radius:3px;cursor:auto;padding:10px 25px;background:#007BFF;" valign="middle"> <a href="#" style="background:#007BFF;color:#ffffff;font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:16px;font-weight:normal;line-height:120%;Margin:0;text-decoration:none;text-transform:none;" target="_blank">
+                          <td align="center" bgcolor="#007BFF" role="presentation" style="border:none;border-radius:3px;cursor:auto;padding:10px 25px;background:#007BFF;" valign="middle"> <a href="{{config('frontend.url').'/v1/auth/verify-account/'.$token}}" style="background:#007BFF;color:#ffffff;font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:16px;font-weight:normal;line-height:120%;Margin:0;text-decoration:none;text-transform:none;"
+                              target="_blank">
               Confirm now
             </a> </td>
                         </tr>
@@ -188,11 +189,11 @@
                 <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
                   <tr>
                     <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                      <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:left;color:#6C757D;"> This message was send to {{$email}}. If you have received this email by mistake, please ignore this message. </div>
+                      <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:20px;text-align:left;color:#6C757D;"> This message was send to {{$email}}. If you have received this email by mistake, please ignore this message. </div>
                     </td>
                   </tr>
                   <tr>
-                    <td style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                    <td style="font-size:0px;padding:5px 25px;word-break:break-word;">
                       <p style="border-top:dashed 1px lightgrey;font-size:1;margin:0px auto;width:100%;"> </p>
                       <!--[if mso | IE]>
         <table
@@ -209,12 +210,12 @@
                   </tr>
                   <tr>
                     <td align="left" class="footer-links" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                      <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1;text-align:left;color:#6C757D;"> <span style="padding: 0 10px; border-left: none; padding-left: 0;"><a href="#" class="link-nostyle" style="font-weight: bold; color: #6C757D; text-decoration: none;">Privacy Policy</a></span> <span style="border-left: 1px solid #ccc; padding: 0 10px;"><a href="#" class="link-nostyle" style="font-weight: bold; color: #6C757D; text-decoration: none;">Contact Us</a></span>                        </div>
+                      <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:20px;text-align:left;color:#6C757D;"> <span style="padding: 0 10px; border-left: none; padding-left: 0;"><a href="#" class="link-nostyle" style="font-weight: bold; color: #6C757D; text-decoration: none;">Privacy Policy</a></span> <span style="border-left: 1px solid #ccc; padding: 0 10px;"><a href="#" class="link-nostyle" style="font-weight: bold; color: #6C757D; text-decoration: none;">Contact Us</a></span>                        </div>
                     </td>
                   </tr>
                   <tr>
                     <td align="left" class="footer-links" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                      <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:12px;font-style:italic;line-height:1;text-align:left;color:#6C757D;"> Postal address of the company </div>
+                      <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:12px;font-style:italic;line-height:20px;text-align:left;color:#6C757D;"> Postal address of the company </div>
                     </td>
                   </tr>
                 </table>

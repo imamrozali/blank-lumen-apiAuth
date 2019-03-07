@@ -25,10 +25,17 @@ $app->withFacades();
 
 $app->withEloquent();
 
+/*
+|--------------------------------------------------------------------------
+| Register Configs
+|--------------------------------------------------------------------------
+|
+| Load configuration variables from the files in the /config directory.
+|
+*/
+
+$app->configure('frontend');
 $app->configure('mail');
-$app->alias('mailer', Illuminate\Mail\Mailer::class);
-$app->alias('mailer', Illuminate\Contracts\Mail\Mailer::class);
-$app->alias('mailer', Illuminate\Contracts\Mail\MailQueue::class);
 
 /*
 |--------------------------------------------------------------------------
