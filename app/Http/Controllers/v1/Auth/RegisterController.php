@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\v1\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\Auth\VerifyAccount;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -45,8 +46,10 @@ class RegisterController extends Controller
 
         $user->save();
 
+        Mail::to($user)->send(new VerifyAccount($user));
+
         return response()->json( [
-            'message' => 'Account created.'
+            'message' => 'Account created. Please verify it via email.'
         ], 201);
     }
 }

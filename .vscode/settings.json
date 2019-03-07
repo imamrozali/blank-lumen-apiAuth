@@ -3,4 +3,7 @@
     "[markdown]": {
         "editor.tabSize": 2,
     },
+    "[html]": {
+        "editor.tabSize": 2,
+    },
 }

@@ -4,6 +4,10 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
+$router->get('/email', function () use ($router) {
+    return view('emails.auth.verify-account');
+});
+
 /*
 |-----------------------------------------------------------------------------------------------------------------------
 | API v1
