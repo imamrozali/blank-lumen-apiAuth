@@ -19,6 +19,7 @@ $router->get('/email', function () use ($router) {
 $router->group(['prefix' => 'v1', 'namespace' => 'v1'], function () use ($router) {
     $router->group(['prefix' => 'auth', 'namespace' => 'Auth'], function () use ($router) {
         $router->post('register', 'RegisterController');
+        $router->post('register-unverified', 'RegisterUnverifiedController');
         $router->get('verify-account/{token}', 'VerifyAccountController');
     });
 });
