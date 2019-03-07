@@ -6,6 +6,9 @@
 - [2. Instalación](#2-instalación)
   - [2.1. Configuración](#21-configuración)
   - [2.2. Servidor de desarrollo](#22-servidor-de-desarrollo)
+- [3. API Routes](#3-api-routes)
+- [4. Emails](#4-emails)
+  - [4.1. auth/verify-account](#41-auth-verify-account)
 - [Bibliografía](#bibliografía)
 
 ---
@@ -30,7 +33,7 @@ La intención de este repositorio es la de ahorrarnos tiempo cada vez que queram
 > cp .env.example .env
 ```
 
-# 2.1. Configuración
+## 2.1. Configuración
 
 ```bash
 > cp .env.example .env
@@ -52,7 +55,7 @@ Insertamos todos los datos necesarios del archivo _.env_ y después [ejecutamos 
 > php artisan migrate
 ```
 
-# 2.2. Servidor de desarrollo
+## 2.2. Servidor de desarrollo
 
 ```bash
 > php -S localhost:8000 -t public
@@ -63,6 +66,70 @@ O también
 ```bash
 > php artisan serve
 ```
+
+# 3. API Routes
+
+Rutas predefinidas en el proyecto, éstas relacionadas con la autenticación de los/las usuarios/rias.
+
+```bash
+> php artisan route:list
+
++------+---------------------------------+------------+------------------------------------------------------+------------------+------------+
+| Verb | Path                            | NamedRoute | Controller                                           | Action           | Middleware |
++------+---------------------------------+------------+------------------------------------------------------+------------------+------------+
+| GET  | /                               |            | None                                                 | Closure          |            |
+| POST | /v1/auth/register               |            | App\Http\Controllers\v1\Auth\RegisterController      | METHOD NOT FOUND |            |
+| GET  | /v1/auth/verify-account/{token} |            | App\Http\Controllers\v1\Auth\VerifyAccountController | METHOD NOT FOUND |            |
++------+---------------------------------+------------+------------------------------------------------------+------------------+------------+
+```
+
+# 4. Emails
+
+Los correos electrónicos han sido generador con el framework MJML. El código proporcionado a continuación es el utilizado para generar los correos con dicho framework, es decir, está por compilar.
+
+Todos los correos electrónicos se encuentran en _/resources/views/emails_.
+
+# 4.1. auth/verify-account
+
+Correo electrónico enviado a través de `Mail::to($user)->send(new VerifyAccount($user));`. Utilizado para verificar la cuenta del/la usuario/ria.
+
+```html
+<mjml>
+  <mj-head>
+    <mj-style inline="inline">
+      .footer-links span { border-left: 1px solid #ccc; padding: 0 10px; } .footer-links span:first-child { border-left: none; padding-left: 0; } .footer-links span a { color: #6C757D !important; font-weight: bold; text-decoration: none !important; }
+    </mj-style>
+  </mj-head>
+  <mj-body background-color="#ffffff">
+    <mj-raw>
+      <!-- Intro text -->
+    </mj-raw>
+    <mj-section>
+      <mj-column>
+        <mj-text align="center" font-size="28px">Confirm your account</mj-text>
+        <mj-text align="center" font-size="16px" line-height="24px">Hello <strong>{{$username}}</strong>, confirm your email address to finish creating your {{env('APP_NAME')}} account. It's easy, just click the button below.</mj-text>
+        <mj-button font-size="16px" background-color="#007BFF" href="{{config('frontend.url').'/v1/auth/verify-account/'.$token}}">Confirm now</mj-button>
+      </mj-column>
+    </mj-section>
+    <mj-raw>
+      <!-- Footer -->
+    </mj-raw>
+    <mj-section background-color="#F8F9FA">
+      <mj-column>
+        <mj-text font-size="13px" line-height="20px" color="#6C757D">This message was send to {{$email}}. If you have received this email by mistake, please ignore this message.</mj-text>
+        <mj-divider border-width="1px" border-style="dashed" border-color="lightgrey" padding="5px 25px" />
+        <mj-text font-size="13px" line-height="20px" color="#6C757D" css-class="footer-links">
+          <span><a href="#" class="link-nostyle">Privacy Policy</a></span>
+          <span><a href="#" class="link-nostyle">Contact Us</a></span>
+        </mj-text>
+        <mj-text font-size="12px" line-height="20px" font-style="italic" color="#6C757D" css-class="footer-links">Postal address of the company</mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
+```
+
+> Es importante tener en cuenta la redirección `{{config('frontend.url').'/v1/auth/verify-account/'.$token}}`.
 
 # Bibliografía
 
