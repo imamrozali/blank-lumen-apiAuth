@@ -19,6 +19,7 @@ $router->group(['prefix' => 'auth', 'namespace' => 'Auth'], function () use ($ro
     $router->post('register-unverified', 'RegisterUnverifiedController');
     $router->get('verify/{token}', 'VerifyController');
     $router->post('login', 'LoginController');
+    $router->get('logout', 'LogoutController');
 });
 
 /*

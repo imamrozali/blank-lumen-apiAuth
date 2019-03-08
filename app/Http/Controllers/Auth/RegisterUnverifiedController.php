@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Mail\Auth\VerifyAccount;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class RegisterUnverifiedController extends Controller
@@ -28,9 +27,9 @@ class RegisterUnverifiedController extends Controller
 	 * @return \Illuminate\Http\JsonResponse
      */
 
-    public function __invoke()
+    public function __invoke(Request $request)
     {
-        $user = Auth::user();
+        $user = $request->user();
 
         if ($user->account_verified == true) {
             return response()->json([
