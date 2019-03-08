@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Mail\Auth\VerifyAccount;
-use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -39,7 +38,7 @@ class RegisterUnverifiedController extends Controller
 
         Mail::to($user)->send(new VerifyAccount($user));
 
-        return response()->json( [
+        return response()->json([
             'message' => 'E-mail send.'
         ], 201);
     }

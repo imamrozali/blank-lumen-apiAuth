@@ -109,6 +109,9 @@ Rutas predefinidas en el proyecto, éstas relacionadas con la autenticación de 
 | POST   | /auth/register                           |            | App\Http\Controllers\Auth\RegisterController                       | METHOD NOT FOUND |            |
 | POST   | /auth/register-unverified                |            | App\Http\Controllers\Auth\RegisterUnverifiedController             | METHOD NOT FOUND |            |
 | GET    | /auth/verify/{token}                     |            | App\Http\Controllers\Auth\VerifyController                         | METHOD NOT FOUND |            |
+| POST   | /auth/login                              |            | App\Http\Controllers\Auth\LoginController                          | METHOD NOT FOUND |            |
+| GET    | /auth/logout                             |            | App\Http\Controllers\Auth\LogoutController                         | METHOD NOT FOUND |            |
+| GET    | /auth/user                               |            | App\Http\Controllers\Auth\UserController                           | METHOD NOT FOUND |            |
 +--------+------------------------------------------+------------+--------------------------------------------------------------------+------------------+------------+
 ```
 

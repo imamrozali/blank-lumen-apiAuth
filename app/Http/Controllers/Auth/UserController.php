@@ -15,7 +15,7 @@ class UserController extends Controller
 
     public function __construct()
     {
-        //
+        $this->middleware('auth:api');
     }
 
     /**
@@ -23,8 +23,8 @@ class UserController extends Controller
      *
      */
 
-    public function __invoke()
+    public function __invoke(Request $request)
     {
-        //
+        return response()->json($request->user(), 201);
     }
 }
