@@ -8,7 +8,7 @@
   - [2.2. Servidor de desarrollo](#22-servidor-de-desarrollo)
 - [3. API Routes](#3-api-routes)
 - [4. Emails](#4-emails)
-  - [4.1. auth/verify](#41-auth-verify)
+  - [4.1. authverify](#41-auth-verify)
 - [Bibliografía](#bibliografía)
 
 ---
@@ -72,7 +72,7 @@ O también
 Rutas predefinidas en el proyecto, éstas relacionadas con la autenticación de los/las usuarios/rias.
 
 ```bash
-λ php artisan route:list
+> php artisan route:list
 
 +------+------------------------------+------------+-----------------------------------------------------------+------------------+------------+
 | Verb | Path                         | NamedRoute | Controller                                                | Action           | Middleware |
