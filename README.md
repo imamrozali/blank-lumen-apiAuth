@@ -55,9 +55,14 @@ Insertamos todos los datos necesarios del archivo _.env_ y después [ejecutamos 
 > php artisan migrate
 ```
 
-**Resetear migraciones** (desarrollo)
+> **Resetear migraciones** (desarrollo)<br>
+>_Para resetear la base de datos y hacer pruebas sin la necesidad de borrarla y volver a crearla_.
 
-_Para resetear la base de datos y hacer pruebas sin la necesidad de borrarla y volver a crearla_.
+**Passport**
+
+```bash
+> php artisan passport:install
+```
 
 ```bash
 > php artisan migrate:reset && php artisan migrate
