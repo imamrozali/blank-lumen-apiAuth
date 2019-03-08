@@ -82,14 +82,26 @@ Rutas predefinidas en el proyecto, éstas relacionadas con la autenticación de 
 ```bash
 > php artisan route:list
 
-+------+---------------------------+------------+--------------------------------------------------------+------------------+------------+
-| Verb | Path                      | NamedRoute | Controller                                             | Action           | Middleware |
-+------+---------------------------+------------+--------------------------------------------------------+------------------+------------+
-| GET  | /                         |            | None                                                   | Closure          |            |
-| POST | /auth/register            |            | App\Http\Controllers\Auth\RegisterController           | METHOD NOT FOUND |            |
-| POST | /auth/register-unverified |            | App\Http\Controllers\Auth\RegisterUnverifiedController | METHOD NOT FOUND |            |
-| GET  | /auth/verify/{token}      |            | App\Http\Controllers\Auth\VerifyController             | METHOD NOT FOUND |            |
-+------+---------------------------+------------+--------------------------------------------------------+------------------+------------+
++--------+------------------------------------------+------------+--------------------------------------------------------------------+------------------+------------+
+| Verb   | Path                                     | NamedRoute | Controller                                                         | Action           | Middleware |
++--------+------------------------------------------+------------+--------------------------------------------------------------------+------------------+------------+
+| POST   | /oauth/token                             |            | \Dusterio\LumenPassport\Http\Controllers\AccessTokenController     | issueToken       |            |
+| GET    | /oauth/tokens                            |            | \Laravel\Passport\Http\Controllers\AuthorizedAccessTokenController | forUser          | auth       |
+| DELETE | /oauth/tokens/{token_id}                 |            | \Laravel\Passport\Http\Controllers\AuthorizedAccessTokenController | destroy          | auth       |
+| POST   | /oauth/token/refresh                     |            | \Laravel\Passport\Http\Controllers\TransientTokenController        | refresh          | auth       |
+| GET    | /oauth/clients                           |            | \Laravel\Passport\Http\Controllers\ClientController                | forUser          | auth       |
+| POST   | /oauth/clients                           |            | \Laravel\Passport\Http\Controllers\ClientController                | store            | auth       |
+| PUT    | /oauth/clients/{client_id}               |            | \Laravel\Passport\Http\Controllers\ClientController                | update           | auth       |
+| DELETE | /oauth/clients/{client_id}               |            | \Laravel\Passport\Http\Controllers\ClientController                | destroy          | auth       |
+| GET    | /oauth/scopes                            |            | \Laravel\Passport\Http\Controllers\ScopeController                 | all              | auth       |
+| GET    | /oauth/personal-access-tokens            |            | \Laravel\Passport\Http\Controllers\PersonalAccessTokenController   | forUser          | auth       |
+| POST   | /oauth/personal-access-tokens            |            | \Laravel\Passport\Http\Controllers\PersonalAccessTokenController   | store            | auth       |
+| DELETE | /oauth/personal-access-tokens/{token_id} |            | \Laravel\Passport\Http\Controllers\PersonalAccessTokenController   | destroy          | auth       |
+| GET    | /                                        |            | None                                                               | Closure          |            |
+| POST   | /auth/register                           |            | App\Http\Controllers\Auth\RegisterController                       | METHOD NOT FOUND |            |
+| POST   | /auth/register-unverified                |            | App\Http\Controllers\Auth\RegisterUnverifiedController             | METHOD NOT FOUND |            |
+| GET    | /auth/verify/{token}                     |            | App\Http\Controllers\Auth\VerifyController                         | METHOD NOT FOUND |            |
++--------+------------------------------------------+------------+--------------------------------------------------------------------+------------------+------------+
 ```
 
 # 4. Emails
@@ -142,6 +154,9 @@ Correo electrónico enviado a través de `Mail::to($user)->send(new VerifyAccoun
 
 # Bibliografía
 
+SITIOINFO. _Título_. < [url](url) >
+<br>[Última consulta: fecha]
+
 LARAVEL. _Single Action Controllers_. < [https://laravel.com/docs/5.8/controllers#single-action-controllers](https://laravel.com/docs/5.8/controllers#single-action-controllers) >
 <br>[Última consulta: 5 de marzo de 2019]
 
@@ -151,8 +166,14 @@ LUMEN. _The stunningly fast micro-framework by Laravel_. < [https://lumen.larave
 LUMEN. _Mail_. < [https://lumen.laravel.com/docs/5.8/mail](https://lumen.laravel.com/docs/5.8/mail) >
 <br>[Última consulta: 7 de marzo de 2019]
 
+MEDIUM (David Ngugi). _Setting up OAuth in Lumen using Laravel Passport_. < [https://medium.com/the-andela-way/setting-up-oauth-in-lumen-using-laravel-passport-2de9d007e0b0](https://medium.com/the-andela-way/setting-up-oauth-in-lumen-using-laravel-passport-2de9d007e0b0) >
+<br>[Última consulta: 8 de marzo de 2019]
+
 MJML. _The only framework that makes responsive email easy_. < [https://mjml.io/](https://mjml.io/) >
 <br>[Última consulta: 7 de marzo de 2019]
+
+PACKAGIST (dusterio/lumen-passport). _Making Laravel Passport work with Lumen_. < [https://packagist.org/packages/dusterio/lumen-passport](https://packagist.org/packages/dusterio/lumen-passport) >
+<br>[Última consulta: 8 de marzo de 2019]
 
 PACKAGIST (flipbox/lumen-generator). _A Lumen Generator You Are Missing_. < [https://packagist.org/packages/flipbox/lumen-generator](https://packagist.org/packages/flipbox/lumen-generator) >
 <br>[Última consulta: 4 de marzo de 2019]

@@ -1,6 +1,7 @@
 .env
 /.idea
 /database/*.sqlite
+/storage/oauth-*
 /vendor
 Homestead.json
 Homestead.yaml
