@@ -4,8 +4,20 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/email', function () use ($router) {
-    return view('emails.auth.verify');
+/*
+|-----------------------------------------------------------------------------------------------------------------------
+| API Auth
+|-----------------------------------------------------------------------------------------------------------------------
+| App\Http\Controllers\Auth
+| Como no se cree la necesidad de versionar la parte de autenticación de usuarios/rias, no se definen por ningún prefijo
+| "vn", tan solo "auth".
+|
+*/
+
+$router->group(['prefix' => 'auth', 'namespace' => 'Auth'], function () use ($router) {
+    $router->post('register', 'RegisterController');
+    $router->post('register-unverified', 'RegisterUnverifiedController');
+    $router->get('verify/{token}', 'VerifyController');
 });
 
 /*
@@ -17,11 +29,7 @@ $router->get('/email', function () use ($router) {
 */
 
 $router->group(['prefix' => 'v1', 'namespace' => 'v1'], function () use ($router) {
-    $router->group(['prefix' => 'auth', 'namespace' => 'Auth'], function () use ($router) {
-        $router->post('register', 'RegisterController');
-        $router->post('register-unverified', 'RegisterUnverifiedController');
-        $router->get('verify/{token}', 'VerifyController');
-    });
+    //
 });
 
 

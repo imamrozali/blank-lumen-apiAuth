@@ -74,15 +74,14 @@ Rutas predefinidas en el proyecto, éstas relacionadas con la autenticación de 
 ```bash
 > php artisan route:list
 
-+------+------------------------------+------------+-----------------------------------------------------------+------------------+------------+
-| Verb | Path                         | NamedRoute | Controller                                                | Action           | Middleware |
-+------+------------------------------+------------+-----------------------------------------------------------+------------------+------------+
-| GET  | /                            |            | None                                                      | Closure          |            |
-| GET  | /email                       |            | None                                                      | Closure          |            |
-| POST | /v1/auth/register            |            | App\Http\Controllers\v1\Auth\RegisterController           | METHOD NOT FOUND |            |
-| POST | /v1/auth/register-unverified |            | App\Http\Controllers\v1\Auth\RegisterUnverifiedController | METHOD NOT FOUND |            |
-| GET  | /v1/auth/verify/{token}      |            | App\Http\Controllers\v1\Auth\VerifyController             | METHOD NOT FOUND |            |
-+------+------------------------------+------------+-----------------------------------------------------------+------------------+------------+
++------+---------------------------+------------+--------------------------------------------------------+------------------+------------+
+| Verb | Path                      | NamedRoute | Controller                                             | Action           | Middleware |
++------+---------------------------+------------+--------------------------------------------------------+------------------+------------+
+| GET  | /                         |            | None                                                   | Closure          |            |
+| POST | /auth/register            |            | App\Http\Controllers\Auth\RegisterController           | METHOD NOT FOUND |            |
+| POST | /auth/register-unverified |            | App\Http\Controllers\Auth\RegisterUnverifiedController | METHOD NOT FOUND |            |
+| GET  | /auth/verify/{token}      |            | App\Http\Controllers\Auth\VerifyController             | METHOD NOT FOUND |            |
++------+---------------------------+------------+--------------------------------------------------------+------------------+------------+
 ```
 
 # 4. Emails
@@ -110,7 +109,7 @@ Correo electrónico enviado a través de `Mail::to($user)->send(new VerifyAccoun
       <mj-column>
         <mj-text align="center" font-size="28px">Confirm your account</mj-text>
         <mj-text align="center" font-size="16px" line-height="24px">Hello <strong>{{$username}}</strong>, confirm your email address to finish creating your {{env('APP_NAME')}} account. It's easy, just click the button below.</mj-text>
-        <mj-button font-size="16px" background-color="#007BFF" href="{{config('frontend.url').'/v1/auth/verify/'.$token}}">Confirm now</mj-button>
+        <mj-button font-size="16px" background-color="#007BFF" href="{{config('frontend.url').'/auth/verify/'.$token}}">Confirm now</mj-button>
       </mj-column>
     </mj-section>
     <mj-raw>
@@ -131,7 +130,7 @@ Correo electrónico enviado a través de `Mail::to($user)->send(new VerifyAccoun
 </mjml>
 ```
 
-> Es importante tener en cuenta la redirección `{{config('frontend.url').'/v1/auth/verify/'.$token}}`.
+> Es importante tener en cuenta la redirección `{{config('frontend.url').'/auth/verify/'.$token}}`.
 
 # Bibliografía
 
