@@ -1,7 +1,5 @@
 <?php
 
-use Dusterio\LumenPassport\LumenPassport;
-
 require_once __DIR__.'/../vendor/autoload.php';
 
 (new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
@@ -76,8 +74,7 @@ $app->singleton(
 // ]);
 
 $app->routeMiddleware([
-    'auth'   => App\Http\Middleware\Authenticate::class,
-    'client' => \Laravel\Passport\Http\Middleware\CheckClientCredentials::class
+    'auth' => App\Http\Middleware\Authenticate::class
 ]);
 
 /*
@@ -94,6 +91,7 @@ $app->routeMiddleware([
 $app->register(App\Providers\AppServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);
 $app->register(App\Providers\EventServiceProvider::class);
+
 $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
 $app->register(Illuminate\Mail\MailServiceProvider::class);
 $app->register(Laravel\Passport\PassportServiceProvider::class);
@@ -110,7 +108,7 @@ $app->register(Dusterio\LumenPassport\PassportServiceProvider::class);
 |
 */
 
-LumenPassport::routes($app->router);
+Dusterio\LumenPassport\LumenPassport::routes($app->router);
 
 $app->router->group([
     'namespace' => 'App\Http\Controllers',
