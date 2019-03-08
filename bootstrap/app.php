@@ -1,5 +1,7 @@
 <?php
 
+use Dusterio\LumenPassport\LumenPassport;
+
 require_once __DIR__.'/../vendor/autoload.php';
 
 (new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
@@ -108,7 +110,7 @@ $app->register(Dusterio\LumenPassport\PassportServiceProvider::class);
 |
 */
 
-\Dusterio\LumenPassport\LumenPassport::routes($app->router);
+LumenPassport::routes($app->router);
 
 $app->router->group([
     'namespace' => 'App\Http\Controllers',
