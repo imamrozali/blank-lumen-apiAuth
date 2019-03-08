@@ -8,7 +8,7 @@
   - [2.2. Servidor de desarrollo](#22-servidor-de-desarrollo)
 - [3. API Routes](#3-api-routes)
 - [4. Emails](#4-emails)
-  - [4.1. authverify](#41-auth-verify)
+  - [4.1. auth/verify](#41-authverify)
 - [Bibliografía](#bibliografía)
 
 ---
@@ -130,7 +130,7 @@ Correo electrónico enviado a través de `Mail::to($user)->send(new VerifyAccoun
 </mjml>
 ```
 
-> Es importante tener en cuenta la redirección `{{env('APP_URL').'/auth/verify/'.$token}}`.
+> Es importante tener en cuenta la URL de redirección `{{env('APP_URL').'/auth/verify/'.$token}}`.
 
 # Bibliografía
 
