@@ -30,8 +30,6 @@ class LoginController extends Controller
             'password' => 'required'
         ]);
 
-        // Si no verificado, avisamos + Enviar email verificación
-
-        // Si verificado, login
+        // Si no verificado se deberá verificar con RegisterUnverifiedController
     }
 }
