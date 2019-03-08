@@ -34,7 +34,6 @@ $app->withEloquent();
 |
 */
 
-$app->configure('frontend');
 $app->configure('mail');
 
 /*

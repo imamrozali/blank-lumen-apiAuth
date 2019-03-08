@@ -109,7 +109,7 @@ Correo electrónico enviado a través de `Mail::to($user)->send(new VerifyAccoun
       <mj-column>
         <mj-text align="center" font-size="28px">Confirm your account</mj-text>
         <mj-text align="center" font-size="16px" line-height="24px">Hello <strong>{{$username}}</strong>, confirm your email address to finish creating your {{env('APP_NAME')}} account. It's easy, just click the button below.</mj-text>
-        <mj-button font-size="16px" background-color="#007BFF" href="{{config('frontend.url').'/auth/verify/'.$token}}">Confirm now</mj-button>
+        <mj-button font-size="16px" background-color="#007BFF" href="{{env('APP_URL').'/auth/verify/'.$token}}">Confirm now</mj-button>
       </mj-column>
     </mj-section>
     <mj-raw>
@@ -130,7 +130,7 @@ Correo electrónico enviado a través de `Mail::to($user)->send(new VerifyAccoun
 </mjml>
 ```
 
-> Es importante tener en cuenta la redirección `{{config('frontend.url').'/auth/verify/'.$token}}`.
+> Es importante tener en cuenta la redirección `{{env('APP_URL').'/auth/verify/'.$token}}`.
 
 # Bibliografía
 
