@@ -8,7 +8,7 @@
   - [2.2. Servidor de desarrollo](#22-servidor-de-desarrollo)
 - [3. API Routes](#3-api-routes)
 - [4. Emails](#4-emails)
-  - [4.1. auth/verify-account](#41-auth-verify-account)
+  - [4.1. auth/verify](#41-auth-verify)
 - [Bibliografía](#bibliografía)
 
 ---
@@ -72,15 +72,17 @@ O también
 Rutas predefinidas en el proyecto, éstas relacionadas con la autenticación de los/las usuarios/rias.
 
 ```bash
-> php artisan route:list
+λ php artisan route:list
 
-+------+---------------------------------+------------+------------------------------------------------------+------------------+------------+
-| Verb | Path                            | NamedRoute | Controller                                           | Action           | Middleware |
-+------+---------------------------------+------------+------------------------------------------------------+------------------+------------+
-| GET  | /                               |            | None                                                 | Closure          |            |
-| POST | /v1/auth/register               |            | App\Http\Controllers\v1\Auth\RegisterController      | METHOD NOT FOUND |            |
-| GET  | /v1/auth/verify-account/{token} |            | App\Http\Controllers\v1\Auth\VerifyAccountController | METHOD NOT FOUND |            |
-+------+---------------------------------+------------+------------------------------------------------------+------------------+------------+
++------+------------------------------+------------+-----------------------------------------------------------+------------------+------------+
+| Verb | Path                         | NamedRoute | Controller                                                | Action           | Middleware |
++------+------------------------------+------------+-----------------------------------------------------------+------------------+------------+
+| GET  | /                            |            | None                                                      | Closure          |            |
+| GET  | /email                       |            | None                                                      | Closure          |            |
+| POST | /v1/auth/register            |            | App\Http\Controllers\v1\Auth\RegisterController           | METHOD NOT FOUND |            |
+| POST | /v1/auth/register-unverified |            | App\Http\Controllers\v1\Auth\RegisterUnverifiedController | METHOD NOT FOUND |            |
+| GET  | /v1/auth/verify/{token}      |            | App\Http\Controllers\v1\Auth\VerifyController             | METHOD NOT FOUND |            |
++------+------------------------------+------------+-----------------------------------------------------------+------------------+------------+
 ```
 
 # 4. Emails
@@ -89,7 +91,7 @@ Los correos electrónicos han sido generador con el framework MJML. El código p
 
 Todos los correos electrónicos se encuentran en _/resources/views/emails_.
 
-## 4.1. auth/verify-account
+## 4.1. auth/verify
 
 Correo electrónico enviado a través de `Mail::to($user)->send(new VerifyAccount($user));`. Utilizado para verificar la cuenta del/la usuario/ria.
 
@@ -108,7 +110,7 @@ Correo electrónico enviado a través de `Mail::to($user)->send(new VerifyAccoun
       <mj-column>
         <mj-text align="center" font-size="28px">Confirm your account</mj-text>
         <mj-text align="center" font-size="16px" line-height="24px">Hello <strong>{{$username}}</strong>, confirm your email address to finish creating your {{env('APP_NAME')}} account. It's easy, just click the button below.</mj-text>
-        <mj-button font-size="16px" background-color="#007BFF" href="{{config('frontend.url').'/v1/auth/verify-account/'.$token}}">Confirm now</mj-button>
+        <mj-button font-size="16px" background-color="#007BFF" href="{{config('frontend.url').'/v1/auth/verify/'.$token}}">Confirm now</mj-button>
       </mj-column>
     </mj-section>
     <mj-raw>
@@ -129,7 +131,7 @@ Correo electrónico enviado a través de `Mail::to($user)->send(new VerifyAccoun
 </mjml>
 ```
 
-> Es importante tener en cuenta la redirección `{{config('frontend.url').'/v1/auth/verify-account/'.$token}}`.
+> Es importante tener en cuenta la redirección `{{config('frontend.url').'/v1/auth/verify/'.$token}}`.
 
 # Bibliografía
 

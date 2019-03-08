@@ -5,7 +5,7 @@ $router->get('/', function () use ($router) {
 });
 
 $router->get('/email', function () use ($router) {
-    return view('emails.auth.verify-account');
+    return view('emails.auth.verify');
 });
 
 /*
@@ -20,7 +20,7 @@ $router->group(['prefix' => 'v1', 'namespace' => 'v1'], function () use ($router
     $router->group(['prefix' => 'auth', 'namespace' => 'Auth'], function () use ($router) {
         $router->post('register', 'RegisterController');
         $router->post('register-unverified', 'RegisterUnverifiedController');
-        $router->get('verify-account/{token}', 'VerifyAccountController');
+        $router->get('verify/{token}', 'VerifyController');
     });
 });
 

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\v1\Auth;
 use App\Http\Controllers\Controller;
 use App\User;
 
-class VerifyAccountController extends Controller
+class VerifyController extends Controller
 {
     /**
      * Create a new controller instance.
