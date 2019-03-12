@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Mail\Auth\PasswordForgotten;
+use App\PasswordReset;
+use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class PasswordForgottenController extends Controller
 {
@@ -48,7 +53,7 @@ class PasswordForgottenController extends Controller
         );
 
         if ($user && $pswReset) {
-            Mail::to($user)->send(new PasswordForgotten($user));
+            Mail::to($user)->send(new PasswordForgotten($user, $pswReset));
 
             return response()->json([
                 'message' => 'E-mail send.'

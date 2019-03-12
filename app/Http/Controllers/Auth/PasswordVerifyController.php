@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\PasswordReset;
+use Illuminate\Http\Request;
 
-class PasswordResetController extends Controller
+class PasswordVerifyController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -35,6 +36,6 @@ class PasswordResetController extends Controller
             ], 404);
         }
 
-        return response()->json($pswReset->token, 201);
+        return response()->json($pswReset, 201);
     }
 }

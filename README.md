@@ -9,6 +9,7 @@
 - [3. API Routes](#3-api-routes)
 - [4. Emails](#4-emails)
   - [4.1. auth/verify](#41-authverify)
+  - [4.2. auth/psw-reset](#42-authpsw-reset)
 - [Bibliografía](#bibliografía)
 
 ---
@@ -112,8 +113,13 @@ Rutas predefinidas en el proyecto, éstas relacionadas con la autenticación de 
 | POST   | /auth/login                              |            | App\Http\Controllers\Auth\LoginController                          | METHOD NOT FOUND |            |
 | GET    | /auth/logout                             |            | App\Http\Controllers\Auth\LogoutController                         | METHOD NOT FOUND |            |
 | GET    | /auth/user                               |            | App\Http\Controllers\Auth\UserProfileController                    | METHOD NOT FOUND |            |
+| POST   | /auth/password/forgotten                 |            | App\Http\Controllers\Auth\PasswordForgottenController              | METHOD NOT FOUND |            |
+| GET    | /auth/password/verify/{token}            |            | App\Http\Controllers\Auth\PasswordVerifyController                 | METHOD NOT FOUND |            |
+| POST   | /auth/password/reset                     |            | App\Http\Controllers\Auth\PasswordResetController                  | METHOD NOT FOUND |            |
 +--------+------------------------------------------+------------+--------------------------------------------------------------------+------------------+------------+
 ```
+
+> **Info.** Los controladores son _Single Action Controllers_ y los middlewares se aplican en éstos y no en las rutas.
 
 # 4. Emails
 
@@ -162,6 +168,48 @@ Correo electrónico enviado a través de `Mail::to($user)->send(new VerifyAccoun
 ```
 
 > Es importante tener en cuenta la URL de redirección `{{env('APP_URL').'/auth/verify/'.$token}}`.
+
+## 4.2. auth/psw-reset
+
+Correo electrónico enviado a través de `Mail::to($user)->send(new PasswordForgotten($user, $pswReset));`. Utilizado para verificar el token y poder resetear la contraseña.
+
+```html
+<mjml>
+  <mj-head>
+    <mj-style inline="inline">
+      .footer-links span { border-left: 1px solid #ccc; padding: 0 10px; } .footer-links span:first-child { border-left: none; padding-left: 0; } .footer-links span a { color: #6C757D !important; font-weight: bold; text-decoration: none !important; }
+    </mj-style>
+  </mj-head>
+  <mj-body background-color="#ffffff">
+    <mj-raw>
+      <!-- Intro text -->
+    </mj-raw>
+    <mj-section>
+      <mj-column>
+        <mj-text align="center" font-size="28px">Password reset</mj-text>
+        <mj-text align="center" font-size="16px" line-height="24px">Hello <strong>{{$username}}</strong>, you recently requested to reset your password for your {{env('APP_NAME')}} account. It's easy, just click the button below.</mj-text>
+        <mj-button font-size="16px" background-color="#007BFF" href="{{env('APP_URL').'/auth/password/verify/'.$token}}">Reset now</mj-button>
+      </mj-column>
+    </mj-section>
+    <mj-raw>
+      <!-- Footer -->
+    </mj-raw>
+    <mj-section background-color="#F8F9FA">
+      <mj-column>
+        <mj-text font-size="13px" line-height="20px" color="#6C757D">This message was send to {{$email}}. If you have received this email by mistake, please ignore this message.</mj-text>
+        <mj-divider border-width="1px" border-style="dashed" border-color="lightgrey" padding="5px 25px" />
+        <mj-text font-size="13px" line-height="20px" color="#6C757D" css-class="footer-links">
+          <span><a href="#" class="link-nostyle">Privacy Policy</a></span>
+          <span><a href="#" class="link-nostyle">Contact Us</a></span>
+        </mj-text>
+        <mj-text font-size="12px" line-height="20px" font-style="italic" color="#6C757D" css-class="footer-links">Postal address of the company</mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
+```
+
+> Es importante tener en cuenta la URL de redirección `{{env('APP_URL').'/auth/password/verify/'.$token}}`.
 
 # Bibliografía
 
