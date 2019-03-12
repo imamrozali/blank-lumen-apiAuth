@@ -30,7 +30,7 @@ class RegisterUnverifiedController extends Controller
     {
         $user = $request->user();
 
-        if ($user->account_verified == true) {
+        if ($user->account_activated == true) {
             return response()->json([
                 'message' => 'This account has already been verified.'
             ], 404);

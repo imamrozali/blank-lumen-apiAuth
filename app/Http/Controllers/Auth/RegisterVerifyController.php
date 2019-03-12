@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\User;
 
-class VerifyController extends Controller
+class RegisterVerifyController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -27,7 +27,7 @@ class VerifyController extends Controller
 
     public function __invoke($token)
     {
-        $user = User::where('verification_token', $token)->first();
+        $user = User::where('activation_token', $token)->first();
 
         if (!$user) {
             return response()->json([
@@ -35,8 +35,8 @@ class VerifyController extends Controller
             ], 404);
         }
 
-        $user->account_verified   = true;
-        $user->verification_token = null;
+        $user->account_activated = true;
+        $user->activation_token  = null;
 
         $user->save();
 

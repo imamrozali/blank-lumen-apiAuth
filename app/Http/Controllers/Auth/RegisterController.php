@@ -39,10 +39,10 @@ class RegisterController extends Controller
         ]);
 
         $user = new User([
-            'username'           => $request['username'],
-            'email'              => $request['email'],
-            'password'           => Hash::make($request['password']),
-            'verification_token' => Str::random(60)
+            'username'         => $request['username'],
+            'email'            => $request['email'],
+            'password'         => Hash::make($request['password']),
+            'activation_token' => Str::random(60)
         ]);
 
         $user->save();

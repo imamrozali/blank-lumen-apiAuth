@@ -108,8 +108,8 @@ Rutas predefinidas en el proyecto, éstas relacionadas con la autenticación de 
 | DELETE | /oauth/personal-access-tokens/{token_id} |            | \Laravel\Passport\Http\Controllers\PersonalAccessTokenController   | destroy          | auth       |
 | GET    | /                                        |            | None                                                               | Closure          |            |
 | POST   | /auth/register                           |            | App\Http\Controllers\Auth\RegisterController                       | METHOD NOT FOUND |            |
-| POST   | /auth/register-unverified                |            | App\Http\Controllers\Auth\RegisterUnverifiedController             | METHOD NOT FOUND |            |
-| GET    | /auth/verify/{token}                     |            | App\Http\Controllers\Auth\VerifyController                         | METHOD NOT FOUND |            |
+| POST   | /auth/register/unverified                |            | App\Http\Controllers\Auth\RegisterUnverifiedController             | METHOD NOT FOUND |            |
+| GET    | /auth/register/verify/{token}            |            | App\Http\Controllers\Auth\RegisterVerifyController                 | METHOD NOT FOUND |            |
 | POST   | /auth/login                              |            | App\Http\Controllers\Auth\LoginController                          | METHOD NOT FOUND |            |
 | GET    | /auth/logout                             |            | App\Http\Controllers\Auth\LogoutController                         | METHOD NOT FOUND |            |
 | GET    | /auth/user                               |            | App\Http\Controllers\Auth\UserProfileController                    | METHOD NOT FOUND |            |
@@ -146,7 +146,7 @@ Correo electrónico enviado a través de `Mail::to($user)->send(new VerifyAccoun
       <mj-column>
         <mj-text align="center" font-size="28px">Confirm your account</mj-text>
         <mj-text align="center" font-size="16px" line-height="24px">Hello <strong>{{$username}}</strong>, confirm your email address to finish creating your {{env('APP_NAME')}} account. It's easy, just click the button below.</mj-text>
-        <mj-button font-size="16px" background-color="#007BFF" href="{{env('APP_URL').'/auth/verify/'.$token}}">Confirm now</mj-button>
+        <mj-button font-size="16px" background-color="#007BFF" href="{{env('APP_URL').'/auth/register/verify/'.$token}}">Confirm now</mj-button>
       </mj-column>
     </mj-section>
     <mj-raw>
@@ -167,7 +167,7 @@ Correo electrónico enviado a través de `Mail::to($user)->send(new VerifyAccoun
 </mjml>
 ```
 
-> Es importante tener en cuenta la URL de redirección `{{env('APP_URL').'/auth/verify/'.$token}}`.
+> Es importante tener en cuenta la URL de redirección `{{env('APP_URL').'/auth/register/verify/'.$token}}`.
 
 ## 4.2. auth/psw-reset
 
