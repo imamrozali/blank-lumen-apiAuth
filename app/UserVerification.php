@@ -15,6 +15,7 @@ class UserVerification extends Model
     protected $fillable = [
         'email',
         'email_two',
+        'password_reset',
         'phone',
         'token',
         'user_id',

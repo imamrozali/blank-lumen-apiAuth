@@ -62,7 +62,7 @@ Con SQLite:
 >_Para resetear la base de datos y hacer pruebas sin la necesidad de borrarla y volver a crearla_.
 
 ```bash
-> php artisan migrate:reset && php artisan migrate && php artisan passport:install
+> php artisan migrate:reset && php artisan migrate && php artisan passport:install --force
 ```
 
 **Passport**
