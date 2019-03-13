@@ -32,7 +32,7 @@ class PasswordResetController extends Controller
     {
         $this->validate($request, [
             'password' => 'required|string|min:6|confirmed', // Usuario
-            'token'    => 'required'                         // Recibido (paso 2)
+            'token'    => 'required'                         // PasswordVerifyController (return)
         ]);
 
         $pswReset = PasswordReset::where('token', $request['token'])->first();
