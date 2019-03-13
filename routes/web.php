@@ -21,12 +21,16 @@ $router->group(['prefix' => 'auth', 'namespace' => 'Auth'], function () use ($ro
         $router->get('verify/{token}', 'RegisterVerifyController');
     });
     $router->post('login', 'LoginController');
-    $router->get('logout', 'LogoutController');
-    $router->get('user', 'UserProfileController');
     $router->group(['prefix' => 'password'], function () use ($router) {
         $router->post('forgotten', 'PasswordForgottenController');
         $router->get('verify/{token}', 'PasswordVerifyController');
-        $router->post('reset', 'PasswordResetController');
+        $router->put('reset', 'PasswordResetController');
+    });
+    $router->get('logout', 'LogoutController');
+    $router->group(['prefix' => 'user'], function () use ($router) {
+        $router->get('/', 'UserController@show');
+        $router->put('/', 'UserController@update');
+        $router->delete('/', 'UserController@destroy');
     });
 });
 
