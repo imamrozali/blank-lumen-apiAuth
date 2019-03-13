@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth\Register;
 
 use App\Http\Controllers\Controller;
 use App\Mail\Auth\VerifyAccount;

@@ -111,13 +111,13 @@ Rutas predefinidas en el proyecto, éstas relacionadas con la autenticación de 
 | POST   | /auth/register/unverified                |            | App\Http\Controllers\Auth\RegisterUnverifiedController             | METHOD NOT FOUND |            |
 | GET    | /auth/register/verify/{token}            |            | App\Http\Controllers\Auth\RegisterVerifyController                 | METHOD NOT FOUND |            |
 | POST   | /auth/login                              |            | App\Http\Controllers\Auth\LoginController                          | METHOD NOT FOUND |            |
-| POST   | /auth/password/forgotten                 |            | App\Http\Controllers\Auth\PasswordForgottenController              | METHOD NOT FOUND |            |
-| GET    | /auth/password/verify/{token}            |            | App\Http\Controllers\Auth\PasswordVerifyController                 | METHOD NOT FOUND |            |
-| PUT    | /auth/password/reset                     |            | App\Http\Controllers\Auth\PasswordResetController                  | METHOD NOT FOUND |            |
+| POST   | /auth/password/forgotten                 |            | App\Http\Controllers\Auth\Password\PasswordForgottenController     | METHOD NOT FOUND |            |
+| GET    | /auth/password/verify/{token}            |            | App\Http\Controllers\Auth\Password\PasswordVerifyController        | METHOD NOT FOUND |            |
+| PUT    | /auth/password/reset                     |            | App\Http\Controllers\Auth\Password\PasswordResetController         | METHOD NOT FOUND |            |
 | GET    | /auth/logout                             |            | App\Http\Controllers\Auth\LogoutController                         | METHOD NOT FOUND |            |
-| GET    | /auth/user                               |            | App\Http\Controllers\Auth\UserController                           | show             |            |
-| PUT    | /auth/user                               |            | App\Http\Controllers\Auth\UserController                           | update           |            |
-| DELETE | /auth/user                               |            | App\Http\Controllers\Auth\UserController                           | destroy          |            |
+| GET    | /auth/user                               |            | App\Http\Controllers\Auth\UserProfile\UserController               | show             |            |
+| PUT    | /auth/user                               |            | App\Http\Controllers\Auth\UserProfile\UserController               | update           |            |
+| DELETE | /auth/user                               |            | App\Http\Controllers\Auth\UserProfile\UserController               | destroy          |            |
 +--------+------------------------------------------+------------+--------------------------------------------------------------------+------------------+------------+
 ```
 

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth\Password;
 
 use App\Http\Controllers\Controller;
-use App\User;
 use App\UserVerification;
+use Illuminate\Http\Request;
 
-class RegisterVerifyController extends Controller
+class PasswordVerifyController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -20,7 +20,7 @@ class RegisterVerifyController extends Controller
     }
 
     /**
-     * Single Action Controller.
+     * Verificación del token, éste recibido a través del correo electrónico.
      *
      * @param $token
      * @return \Illuminate\Http\JsonResponse
@@ -29,15 +29,6 @@ class RegisterVerifyController extends Controller
     public function __invoke($token)
     {
         $userVerification = UserVerification::where('token', $token)->firstOrFail();
-
-        $user = User::findOrFail($userVerification->user_id);
-        $user->account_activated = true;
-        $user->save();
-
-        $userVerification->delete();
-
-        return response()->json( [
-            'message' => 'Account verified.'
-        ], 201);
+        return response()->json($userVerification->token, 201);
     }
 }
