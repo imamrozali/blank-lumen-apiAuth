@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Auth\UserProfile;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 
-class UserController extends Controller
+class UserPhoneController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -27,7 +26,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        // UserController@show
+        // UserController@show || UserPhoneController@show
     }
 
     /**
@@ -38,7 +37,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        // RegisterController
+        // UserPhoneController@update
     }
 
     /**
@@ -49,7 +48,7 @@ class UserController extends Controller
      */
     public function show(Request $request)
     {
-        return response()->json($request->user(), 201);
+        return response()->json($request->user()->phone, 201);
     }
 
     /**
@@ -63,38 +62,19 @@ class UserController extends Controller
         $user = $request->user();
 
         $this->validate($request, [
-            'name' => [
+            'phone' => [
                 'string',
-                'min:3',
-                'max:15'
-            ],
-            'username' => [
-                'required',
-                'string',
-                'min:3',
-                'max:50',
+                'max:15',
                 Rule::unique('users')->ignore($user->id)
             ],
-            'email'    => [
-                'required',
-                'email',
-                'max:255',
-                'confirmed',
-                Rule::unique('users')->ignore($user->id)
-            ],
-            'password' => 'string|min:6'
         ]);
 
-        if ($request['password'] != null) {
-            $request['password'] = Hash::make($request['password']);
-        } else {
-            unset($request['password']);
-        }
+        $user->update($request['phone']);
 
-        $user->update($request->all());
+        // TODO VERIFICAR
 
         return response()->json([
-            'message' => 'Profile updated.'
+            'message' => 'Phone updated.'
         ], 201);
     }
 
@@ -107,10 +87,10 @@ class UserController extends Controller
     public function destroy(Request $request)
     {
         $user = $request->user();
-        $user->delete();
+        $user->update(['phone' => null]);
 
         return response()->json([
-            'message' => 'Account deleted.'
+            'message' => 'Phone deleted.'
         ], 201);
     }
 }

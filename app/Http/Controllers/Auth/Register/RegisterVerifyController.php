@@ -36,7 +36,7 @@ class RegisterVerifyController extends Controller
 
         $userVerification->delete();
 
-        return response()->json( [
+        return response()->json([
             'message' => 'Account verified.'
         ], 201);
     }

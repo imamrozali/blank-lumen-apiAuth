@@ -43,7 +43,7 @@ class PasswordResetController extends Controller
 
         $userVerification->delete();
 
-        return response()->json( [
+        return response()->json([
             'message' => 'Password updated.'
         ], 201);
     }

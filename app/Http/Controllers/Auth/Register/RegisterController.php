@@ -55,7 +55,7 @@ class RegisterController extends Controller
 
         Mail::to($user)->send(new VerifyAccount($user));
 
-        return response()->json( [
+        return response()->json([
             'message' => 'Account created. Please verify it via email.'
         ], 201);
     }
