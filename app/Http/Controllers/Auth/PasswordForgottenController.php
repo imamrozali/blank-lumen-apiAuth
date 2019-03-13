@@ -36,13 +36,11 @@ class PasswordForgottenController extends Controller
             'identifier' => 'required'
         ]);
 
-        $user = User::where('email', $request['identifier'])->orWhere('username', $request['identifier'])->first();
-
-        if (!$user) {
-            return response()->json([
-                'message' => 'Invalid identifier.'
-            ], 422);
-        }
+        $user = User::where('email', $request['identifier'])
+            ->orWhere('username', $request['identifier'])
+            ->orWhere('email_two', $request['identifier'])
+            ->orWhere('phone', $request['identifier'])
+            ->firstOrFail();
         
         $pswReset = PasswordReset::updateOrCreate(
             ['email' => $user->email],

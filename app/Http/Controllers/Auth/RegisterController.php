@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Mail\Auth\VerifyAccount;
 use App\User;
+use App\UserVerification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -27,7 +28,7 @@ class RegisterController extends Controller
      * Single Action Controller.
      *
      * @param Request $request
-	 * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\JsonResponse
      */
 
     public function __invoke(Request $request)
@@ -39,13 +40,18 @@ class RegisterController extends Controller
         ]);
 
         $user = new User([
-            'username'         => $request['username'],
-            'email'            => $request['email'],
-            'password'         => Hash::make($request['password']),
-            'activation_token' => Str::random(60)
+            'username' => $request['username'],
+            'email'    => $request['email'],
+            'password' => Hash::make($request['password']),
         ]);
-
         $user->save();
+
+        $token = new UserVerification([
+            'user_id' => $user->id,
+            'email'   => $user->email,
+            'token'   => Str::random(60)
+        ]);
+        $token->save();
 
         Mail::to($user)->send(new VerifyAccount($user));
 

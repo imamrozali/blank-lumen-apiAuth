@@ -23,7 +23,7 @@ class RegisterUnverifiedController extends Controller
     /**
      * Single Action Controller.
      *
-	 * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\JsonResponse
      */
 
     public function __invoke(Request $request)

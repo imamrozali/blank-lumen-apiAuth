@@ -218,8 +218,17 @@ Correo electrónico enviado a través de `Mail::to($user)->send(new PasswordForg
 SITIOINFO. _Título_. < [url](url) >
 <br>[Última consulta: fecha]
 
+LARAVEL. _Eloquent: Getting Started_. < [https://laravel.com/docs/5.8/eloquent](https://laravel.com/docs/5.8/eloquent) >
+<br>[Última consulta: 13 de marzo de 2019]
+
+LARAVEL. _Eloquent: Relationships_. < [https://laravel.com/docs/5.8/controllers#single-action-controllers](https://laravel.com/docs/5.8/eloquent-relationships) >
+<br>[Última consulta: 13 de marzo de 2019]
+
 LARAVEL. _Single Action Controllers_. < [https://laravel.com/docs/5.8/controllers#single-action-controllers](https://laravel.com/docs/5.8/controllers#single-action-controllers) >
 <br>[Última consulta: 5 de marzo de 2019]
+
+LARAVEL NEWS. _20 Laravel Eloquent Tips and Tricks_. < [https://laravel-news.com/eloquent-tips-tricks](https://laravel-news.com/eloquent-tips-tricks) >
+<br>[Última consulta: 13 de marzo de 2019]
 
 LUMEN. _The stunningly fast micro-framework by Laravel_. < [https://lumen.laravel.com/](https://lumen.laravel.com/) >
 <br>[Última consulta: 4 de marzo de 2019]

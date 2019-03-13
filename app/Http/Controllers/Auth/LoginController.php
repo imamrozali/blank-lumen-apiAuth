@@ -32,23 +32,16 @@ class LoginController extends Controller
             'password'   => 'required'
         ]);
 
-        // Validar usuario.
-        $user = User::where('email', $request['identifier'])->orWhere('username', $request['identifier'])->first();
-
-        if (!$user) {
-            return response()->json([
-                'message' => 'Invalid identifier.'
-            ], 422);
-        }
+        $user = User::where('email', $request['identifier'])
+            ->orWhere('username', $request['identifier'])
+            ->firstOrFail();
         
-        // Validar contraseña
         if (!Hash::check($request['password'], $user->password)) {
             return response()->json([
                 'message' => 'Invalid password.'
             ], 422);
         }
 
-        // Token
         $token = $user->createToken('Personal Access Token')->accessToken;
         
         return response()->json([

@@ -41,7 +41,7 @@ class VerifyAccount extends Mailable
             ->with([
                 'username' => $this->user->username,
                 'email'    => $this->user->email,
-                'token'    => $this->user->activation_token
+                'token'    => $this->user->pendingVerifications()->whereEmail($this->user->email)->first()->token
             ]);
     }
 }

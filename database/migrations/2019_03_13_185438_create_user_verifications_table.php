@@ -18,9 +18,11 @@ class CreateUserVerificationsTable extends Migration
             $table->string('email')->unique()->nullable();
             $table->string('email_two')->unique()->nullable();
             $table->string('phone')->unique()->nullable();
-            $table->string('password')->nullable();
-            $table->string('token')->nullable();
+            $table->string('token');
             $table->timestamps();
+            // Foreign Keys.
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

@@ -25,7 +25,7 @@ class PasswordResetController extends Controller
      * Actualización/Cambio de la contraseña.
      *
      * @param Request $request
-	 * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\JsonResponse
      */
 
     public function __invoke(Request $request)
@@ -35,15 +35,8 @@ class PasswordResetController extends Controller
             'token'    => 'required'                         // PasswordVerifyController (return)
         ]);
 
-        $pswReset = PasswordReset::where('token', $request['token'])->first();
-
-        if (!$pswReset) {
-            return response()->json([
-                'message' => 'Invalid token.'
-            ], 404);
-        }
-
-        $user = User::where('email', $pswReset->email)->first();
+        $pswReset = PasswordReset::where('token', $request['token'])->firstOrFail();
+        $user     = User::where('email', $pswReset->email)->firstOrFail();
 
         $user->password = Hash::make($request['password']);
         $user->save();

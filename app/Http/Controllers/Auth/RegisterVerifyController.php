@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use App\UserVerification;
 
 class RegisterVerifyController extends Controller
 {
@@ -22,23 +23,25 @@ class RegisterVerifyController extends Controller
      * Single Action Controller.
      *
      * @param $token
-	 * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\JsonResponse
      */
 
     public function __invoke($token)
     {
-        $user = User::where('activation_token', $token)->first();
+        $userVerification = UserVerification::where('token', $token)->first();
 
-        if (!$user) {
+        if (!$userVerification) {
             return response()->json([
                 'message' => 'Invalid token.'
             ], 404);
         }
 
-        $user->account_activated = true;
-        $user->activation_token  = null;
+        $user = User::findOrFail($userVerification->user_id);
 
+        $user->account_activated = true;
         $user->save();
+
+        $userVerification->delete();
 
         return response()->json( [
             'message' => 'Account verified.'

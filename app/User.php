@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\UserVerification;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
@@ -19,7 +20,11 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $fillable = [
-        'name', 'username', 'email', 'password', 'activation_token', 'account_activated'
+        'account_activated',
+        'email',
+        'name',
+        'password',
+        'username',
     ];
 
     /**
@@ -28,6 +33,17 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $hidden = [
-        'password', 'activation_token'
+        'password',
     ];
+
+    // ELOQUENT RELATIONSHIPS
+    // -----------------------------------------------------------------------------------------------------------------
+
+    /**
+     * Get the pending verifications of the user.
+     */
+    public function pendingVerifications()
+    {
+        return $this->hasMany(UserVerification::class);
+    }
 }
