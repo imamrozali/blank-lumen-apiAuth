@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Mail\Auth\PasswordForgotten;
-use App\PasswordReset;
 use App\User;
+use App\UserVerification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
@@ -27,7 +27,7 @@ class PasswordForgottenController extends Controller
      * Generar el token y enviar correo electrónico.
      *
      * @param Request $request
-	 * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\JsonResponse
      */
 
     public function __invoke(Request $request)
@@ -42,20 +42,17 @@ class PasswordForgottenController extends Controller
             ->orWhere('phone', $request['identifier'])
             ->firstOrFail();
         
-        $pswReset = PasswordReset::updateOrCreate(
-            ['email' => $user->email],
-            [
-                'email' => $user->email,
-                'token' => Str::random(60)
-            ]
-        );
+        $token = new UserVerification([
+            'user_id'        => $user->id,
+            'password_reset' => true,
+            'token'          => Str::random(60)
+        ]);
+        $token->save();
 
-        if ($user && $pswReset) {
-            Mail::to($user)->send(new PasswordForgotten($user, $pswReset));
+        Mail::to($user)->send(new PasswordForgotten($user));
 
-            return response()->json([
-                'message' => 'E-mail send.'
-            ], 201);
-        }
+        return response()->json([
+            'message' => 'E-mail send.'
+        ], 201);
     }
 }

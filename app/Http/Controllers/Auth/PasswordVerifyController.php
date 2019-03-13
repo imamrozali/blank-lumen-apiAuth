@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\PasswordReset;
+use App\UserVerification;
 use Illuminate\Http\Request;
 
 class PasswordVerifyController extends Controller
@@ -28,8 +28,7 @@ class PasswordVerifyController extends Controller
 
     public function __invoke($token)
     {
-        $pswReset = PasswordReset::where('token', $token)->firstOrFail();
-
-        return response()->json($pswReset, 201);
+        $userVerification = UserVerification::where('token', $token)->firstOrFail();
+        return response()->json($userVerification->token, 201);
     }
 }

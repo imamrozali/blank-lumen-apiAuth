@@ -2,7 +2,6 @@
 
 namespace App\Mail\Auth;
 
-use App\PasswordReset;
 use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -15,20 +14,17 @@ class PasswordForgotten extends Mailable
 
     /**
      * @var User
-     * @var PasswordReset
      */
     private $user;
-    private $pswReset;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(User $user, PasswordReset $pswReset)
+    public function __construct(User $user)
     {
         $this->user = $user;
-        $this->psw  = $pswReset;
     }
 
     /**
@@ -38,14 +34,22 @@ class PasswordForgotten extends Mailable
      */
     public function build()
     {
+        $username = $this->user->username;
+        $email    = $this->user->email;
+        $token    = $this->user->pendingVerifications()
+            ->where('password_reset', true)
+            ->where('user_id', $this->user->id)
+            ->firstOrFail()
+            ->token;
+
         return $this
             ->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
             ->subject(env('Password reset'))
             ->view('emails.auth.psw-reset')
             ->with([
-                'username' => $this->user->username,
-                'email'    => $this->psw->email,
-                'token'    => $this->psw->token
+                'username' => $username,
+                'email'    => $email,
+                'token'    => $token
             ]);
     }
 }

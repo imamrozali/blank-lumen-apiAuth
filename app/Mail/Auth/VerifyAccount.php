@@ -34,14 +34,21 @@ class VerifyAccount extends Mailable
      */
     public function build()
     {
+        $username = $this->user->username;
+        $email    = $this->user->email;
+        $token    = $this->user->pendingVerifications()
+            ->where('email', $this->user->email)
+            ->firstOrFail()
+            ->token;
+        
         return $this
             ->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
             ->subject(env('Account verification'))
             ->view('emails.auth.verify')
             ->with([
-                'username' => $this->user->username,
-                'email'    => $this->user->email,
-                'token'    => $this->user->pendingVerifications()->whereEmail($this->user->email)->first()->token
+                'username' => $username,
+                'email'    => $email,
+                'token'    => $token
             ]);
     }
 }

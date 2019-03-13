@@ -28,16 +28,9 @@ class RegisterVerifyController extends Controller
 
     public function __invoke($token)
     {
-        $userVerification = UserVerification::where('token', $token)->first();
-
-        if (!$userVerification) {
-            return response()->json([
-                'message' => 'Invalid token.'
-            ], 404);
-        }
+        $userVerification = UserVerification::where('token', $token)->firstOrFail();
 
         $user = User::findOrFail($userVerification->user_id);
-
         $user->account_activated = true;
         $user->save();
 

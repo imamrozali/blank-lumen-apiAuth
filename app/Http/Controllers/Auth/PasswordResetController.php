@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\PasswordReset;
 use App\User;
+use App\UserVerification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -35,13 +35,13 @@ class PasswordResetController extends Controller
             'token'    => 'required'                         // PasswordVerifyController (return)
         ]);
 
-        $pswReset = PasswordReset::where('token', $request['token'])->firstOrFail();
-        $user     = User::where('email', $pswReset->email)->firstOrFail();
+        $userVerification = UserVerification::where('token', $request['token'])->firstOrFail();
 
+        $user           = User::findOrFail($userVerification->user_id);
         $user->password = Hash::make($request['password']);
         $user->save();
 
-        $pswReset->delete();
+        $userVerification->delete();
 
         return response()->json( [
             'message' => 'Password updated.'

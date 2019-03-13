@@ -18,6 +18,7 @@ class CreateUserVerificationsTable extends Migration
             $table->string('email')->unique()->nullable();
             $table->string('email_two')->unique()->nullable();
             $table->string('phone')->unique()->nullable();
+            $table->boolean('password_reset')->default(false);
             $table->string('token');
             $table->timestamps();
             // Foreign Keys.
