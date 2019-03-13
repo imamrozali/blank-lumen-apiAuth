@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('username', 15)->unique();
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('activation_token', 60)->nullable();   // Token para activar la cuenta.
+            $table->string('activation_token')->nullable();   // Token para activar la cuenta.
             $table->boolean('account_activated')->default(false); // Verificar la activación de la cuenta.
             $table->timestamps();
         });
