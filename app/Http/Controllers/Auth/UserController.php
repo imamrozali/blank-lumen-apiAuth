@@ -63,11 +63,16 @@ class UserController extends Controller
         $user = $request->user();
 
         $this->validate($request, [
+            'name' => [
+                'string',
+                'min:3',
+                'max:15'
+            ],
             'username' => [
                 'required',
                 'string',
                 'min:3',
-                'max:15',
+                'max:50',
                 Rule::unique('users')->ignore($user->id)
             ],
             'email'    => [
@@ -86,7 +91,7 @@ class UserController extends Controller
             unset($request['password']);
         }
 
-        $user->update($request);
+        $user->update($request->all());
 
         return response()->json( [
             'message' => 'Profile updated.'
