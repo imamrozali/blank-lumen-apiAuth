@@ -107,17 +107,30 @@ Rutas predefinidas en el proyecto, éstas relacionadas con la autenticación de 
 | POST   | /oauth/personal-access-tokens            |            | \Laravel\Passport\Http\Controllers\PersonalAccessTokenController   | store            | auth       |
 | DELETE | /oauth/personal-access-tokens/{token_id} |            | \Laravel\Passport\Http\Controllers\PersonalAccessTokenController   | destroy          | auth       |
 | GET    | /                                        |            | None                                                               | Closure          |            |
+| POST   | /auth/login                              |            | App\Http\Controllers\Auth\LoginController                          | METHOD NOT FOUND |            |
+| GET    | /auth/logout                             |            | App\Http\Controllers\Auth\LogoutController                         | METHOD NOT FOUND |            |
 | POST   | /auth/register                           |            | App\Http\Controllers\Auth\RegisterController                       | METHOD NOT FOUND |            |
 | POST   | /auth/register/unverified                |            | App\Http\Controllers\Auth\RegisterUnverifiedController             | METHOD NOT FOUND |            |
 | GET    | /auth/register/verify/{token}            |            | App\Http\Controllers\Auth\RegisterVerifyController                 | METHOD NOT FOUND |            |
-| POST   | /auth/login                              |            | App\Http\Controllers\Auth\LoginController                          | METHOD NOT FOUND |            |
 | POST   | /auth/password/forgotten                 |            | App\Http\Controllers\Auth\Password\PasswordForgottenController     | METHOD NOT FOUND |            |
 | GET    | /auth/password/verify/{token}            |            | App\Http\Controllers\Auth\Password\PasswordVerifyController        | METHOD NOT FOUND |            |
 | PUT    | /auth/password/reset                     |            | App\Http\Controllers\Auth\Password\PasswordResetController         | METHOD NOT FOUND |            |
-| GET    | /auth/logout                             |            | App\Http\Controllers\Auth\LogoutController                         | METHOD NOT FOUND |            |
 | GET    | /auth/user                               |            | App\Http\Controllers\Auth\UserProfile\UserController               | show             |            |
 | PUT    | /auth/user                               |            | App\Http\Controllers\Auth\UserProfile\UserController               | update           |            |
 | DELETE | /auth/user                               |            | App\Http\Controllers\Auth\UserProfile\UserController               | destroy          |            |
+| GET    | /auth/user/email                         |            | App\Http\Controllers\Auth\UserProfile\UserEmailController          | show             |            |
+| PUT    | /auth/user/email                         |            | App\Http\Controllers\Auth\UserProfile\UserEmailController          | update           |            |
+| GET    | /auth/user/email/two                     |            | App\Http\Controllers\Auth\UserProfile\UserEmailTwoController       | show             |            |
+| PUT    | /auth/user/email/two                     |            | App\Http\Controllers\Auth\UserProfile\UserEmailTwoController       | update           |            |
+| DELETE | /auth/user/email/two                     |            | App\Http\Controllers\Auth\UserProfile\UserEmailTwoController       | destroy          |            |
+| GET    | /auth/user/email/verify/{token}          |            | App\Http\Controllers\Auth\UserProfile\UserEmailVerifyController    | show             |            |
+| GET    | /auth/user/name                          |            | App\Http\Controllers\Auth\UserProfile\UserNameController           | show             |            |
+| PUT    | /auth/user/name                          |            | App\Http\Controllers\Auth\UserProfile\UserNameController           | update           |            |
+| DELETE | /auth/user/name                          |            | App\Http\Controllers\Auth\UserProfile\UserNameController           | destroy          |            |
+| PUT    | /auth/user/password                      |            | App\Http\Controllers\Auth\UserProfile\UserPasswordController       | METHOD NOT FOUND |            |
+| GET    | /auth/user/phone                         |            | App\Http\Controllers\Auth\UserProfile\UserPhoneController          | show             |            |
+| PUT    | /auth/user/phone                         |            | App\Http\Controllers\Auth\UserProfile\UserPhoneController          | update           |            |
+| DELETE | /auth/user/phone                         |            | App\Http\Controllers\Auth\UserProfile\UserPhoneController          | destroy          |            |
 +--------+------------------------------------------+------------+--------------------------------------------------------------------+------------------+------------+
 ```
 

@@ -15,22 +15,37 @@ $router->get('/', function () use ($router) {
 */
 
 $router->group(['prefix' => 'auth', 'namespace' => 'Auth'], function () use ($router) {
+    $router->post('login', 'LoginController');
+    $router->get('logout', 'LogoutController');
     $router->group(['prefix' => 'register'], function () use ($router) {
         $router->post('/', 'RegisterController');
         $router->post('unverified', 'RegisterUnverifiedController');
         $router->get('verify/{token}', 'RegisterVerifyController');
     });
-    $router->post('login', 'LoginController');
     $router->group(['prefix' => 'password', 'namespace' => 'Password'], function () use ($router) {
         $router->post('forgotten', 'PasswordForgottenController');
         $router->get('verify/{token}', 'PasswordVerifyController');
         $router->put('reset', 'PasswordResetController');
     });
-    $router->get('logout', 'LogoutController');
     $router->group(['prefix' => 'user', 'namespace' => 'UserProfile'], function () use ($router) {
         $router->get('/', 'UserController@show');
         $router->put('/', 'UserController@update');
         $router->delete('/', 'UserController@destroy');
+        $router->group(['prefix' => 'email'], function () use ($router) {
+            $router->get('/', 'UserEmailController@show');
+            $router->put('/', 'UserEmailController@update');
+            $router->get('two', 'UserEmailTwoController@show');
+            $router->put('two', 'UserEmailTwoController@update');
+            $router->delete('two', 'UserEmailTwoController@destroy');
+            $router->get('verify/{token}', 'UserEmailVerifyController@show');
+        });
+        $router->get('name', 'UserNameController@show');
+        $router->put('name', 'UserNameController@update');
+        $router->delete('name', 'UserNameController@destroy');
+        $router->put('password', 'UserPasswordController');
+        $router->get('phone', 'UserPhoneController@show');
+        $router->put('phone', 'UserPhoneController@update');
+        $router->delete('phone', 'UserPhoneController@destroy');
     });
 });
 

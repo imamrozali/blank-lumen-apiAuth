@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth\UserProfile;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class UserEmailTwoController extends Controller
+class UserNameController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -26,7 +26,7 @@ class UserEmailTwoController extends Controller
      */
     public function show(Request $request)
     {
-        return response()->json($request->user()->email_two, 201);
+        return response()->json($request->user()->name, 201);
     }
 
     /**
@@ -40,21 +40,13 @@ class UserEmailTwoController extends Controller
         $user = $request->user();
 
         $this->validate($request, [
-            'email_two' => [
-                'required',
-                'email',
-                'max:255',
-                'confirmed',
-                Rule::unique('users')->ignore($user->id)
-            ],
+            'name' => 'required|string|min:3|max:15'
         ]);
 
-        $user->update($request['email_two']);
-
-        // TODO VERIFICAR
+        $user->update($request['name']);
 
         return response()->json([
-            'message' => 'E-mail updated.'
+            'message' => 'Name updated.'
         ], 201);
     }
 
@@ -67,10 +59,10 @@ class UserEmailTwoController extends Controller
     public function destroy(Request $request)
     {
         $user = $request->user();
-        $user->update(['email_two' => null]);
+        $user->update(['name' => null]);
 
         return response()->json([
-            'message' => 'E-mail deleted.'
+            'message' => 'Name deleted.'
         ], 201);
     }
 }

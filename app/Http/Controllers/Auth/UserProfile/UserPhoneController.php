@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Auth\UserProfile;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 
 class UserPhoneController extends Controller
 {
@@ -17,27 +16,6 @@ class UserPhoneController extends Controller
     public function __construct()
     {
         $this->middleware('auth:api');
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        // UserController@show || UserPhoneController@show
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        // UserPhoneController@update
     }
 
     /**
@@ -63,6 +41,7 @@ class UserPhoneController extends Controller
 
         $this->validate($request, [
             'phone' => [
+                'required',
                 'string',
                 'max:15',
                 Rule::unique('users')->ignore($user->id)

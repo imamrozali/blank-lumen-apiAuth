@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Auth\UserProfile;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 
 class UserEmailController extends Controller
 {
@@ -17,27 +16,6 @@ class UserEmailController extends Controller
     public function __construct()
     {
         $this->middleware('auth:api');
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        // UserController@show || UserEmailController@show
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        // RegisterController || UserEmailController@update
     }
 
     /**
@@ -78,16 +56,5 @@ class UserEmailController extends Controller
         return response()->json([
             'message' => 'E-mail updated.'
         ], 201);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy()
-    {
-        //
     }
 }
