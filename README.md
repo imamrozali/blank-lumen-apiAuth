@@ -226,6 +226,48 @@ Correo electrónico enviado a través de `Mail::to($user)->send(new PasswordForg
 
 > Es importante tener en cuenta la URL de redirección `{{env('APP_URL').'/auth/password/verify/'.$token}}`.
 
+## 4.3. auth/verify-email
+
+Correo electrónico enviado a través de `Mail::to($user)->send(new PasswordForgotten($user, $pswReset));`. Utilizado para verificar el token y poder resetear la contraseña.
+
+```html
+<mjml>
+  <mj-head>
+    <mj-style inline="inline">
+      .footer-links span { border-left: 1px solid #ccc; padding: 0 10px; } .footer-links span:first-child { border-left: none; padding-left: 0; } .footer-links span a { color: #6C757D !important; font-weight: bold; text-decoration: none !important; }
+    </mj-style>
+  </mj-head>
+  <mj-body background-color="#ffffff">
+    <mj-raw>
+      <!-- Intro text -->
+    </mj-raw>
+    <mj-section>
+      <mj-column>
+        <mj-text align="center" font-size="28px">Confirm your e-mail</mj-text>
+        <mj-text align="center" font-size="16px" line-height="24px">Hello <strong>{{$username}}</strong>, confirm your email address. It's easy, just click the button below.</mj-text>
+        <mj-button font-size="16px" background-color="#007BFF" href="{{env('APP_URL').'/auth/user/email/verify/'.$token}}">Confirm now</mj-button>
+      </mj-column>
+    </mj-section>
+    <mj-raw>
+      <!-- Footer -->
+    </mj-raw>
+    <mj-section background-color="#F8F9FA">
+      <mj-column>
+        <mj-text font-size="13px" line-height="20px" color="#6C757D">This message was send to {{$email}}. If you have received this email by mistake, please ignore this message.</mj-text>
+        <mj-divider border-width="1px" border-style="dashed" border-color="lightgrey" padding="5px 25px" />
+        <mj-text font-size="13px" line-height="20px" color="#6C757D" css-class="footer-links">
+          <span><a href="#" class="link-nostyle">Privacy Policy</a></span>
+          <span><a href="#" class="link-nostyle">Contact Us</a></span>
+        </mj-text>
+        <mj-text font-size="12px" line-height="20px" font-style="italic" color="#6C757D" css-class="footer-links">Postal address of the company</mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
+```
+
+> Es importante tener en cuenta la URL de redirección `{{env('APP_URL').'/auth/user/email/verify/'.$token}}`.
+
 # Bibliografía
 
 SITIOINFO. _Título_. < [url](url) >

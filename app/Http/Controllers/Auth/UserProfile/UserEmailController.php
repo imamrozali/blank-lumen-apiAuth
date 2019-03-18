@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Auth\UserProfile;
 
 use App\Http\Controllers\Controller;
+use App\Mail\Auth\VerifyAccount;
+use App\UserVerification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class UserEmailController extends Controller
 {
@@ -51,7 +54,14 @@ class UserEmailController extends Controller
 
         $user->update($request['email']);
 
-        // TODO VERIFICAR
+        $token = new UserVerification([
+            'user_id' => $user->id,
+            'email'   => $request['email'],
+            'token'   => Str::random(60)
+        ]);
+        $token->save();
+        
+        Mail::to($user)->send(new VerifyEmail($token));
 
         return response()->json([
             'message' => 'E-mail updated.'
