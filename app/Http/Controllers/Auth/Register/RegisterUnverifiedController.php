@@ -21,7 +21,7 @@ class RegisterUnverifiedController extends Controller
     }
 
     /**
-     * Single Action Controller.
+     * Resend the email to validate the account.
      *
      * @return \Illuminate\Http\JsonResponse
      */

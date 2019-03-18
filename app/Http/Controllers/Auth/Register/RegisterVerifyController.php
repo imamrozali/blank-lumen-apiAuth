@@ -20,7 +20,7 @@ class RegisterVerifyController extends Controller
     }
 
     /**
-     * Single Action Controller.
+     * Validate the account of the registered user.
      *
      * @param $token
      * @return \Illuminate\Http\JsonResponse

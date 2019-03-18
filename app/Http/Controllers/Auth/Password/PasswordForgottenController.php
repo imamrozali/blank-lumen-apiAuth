@@ -24,7 +24,7 @@ class PasswordForgottenController extends Controller
     }
 
     /**
-     * Generar el token y enviar correo electrónico.
+     * Generate the token and send email.
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse

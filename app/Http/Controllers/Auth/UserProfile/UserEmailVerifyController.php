@@ -21,7 +21,7 @@ class UserPasswordController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Check the new email.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\JsonResponse

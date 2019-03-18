@@ -20,7 +20,7 @@ class PasswordVerifyController extends Controller
     }
 
     /**
-     * Verificación del token, éste recibido a través del correo electrónico.
+     * Verify the token.
      *
      * @param $token
      * @return \Illuminate\Http\JsonResponse

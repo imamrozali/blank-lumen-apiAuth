@@ -22,7 +22,7 @@ class PasswordResetController extends Controller
     }
 
     /**
-     * Actualización/Cambio de la contraseña.
+     * Update or Change password.
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse

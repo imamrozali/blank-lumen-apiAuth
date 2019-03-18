@@ -25,7 +25,7 @@ class RegisterController extends Controller
     }
 
     /**
-     * Single Action Controller.
+     * Register a new user and send an email to validate the account.
      *
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse

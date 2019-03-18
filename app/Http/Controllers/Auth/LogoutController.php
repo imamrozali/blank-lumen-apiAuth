@@ -19,8 +19,10 @@ class LogoutController extends Controller
     }
 
     /**
-     * Single Action Controller.
+     * Disauthenticate the user and log out.
      *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\JsonResponse
      */
 
     public function __invoke(Request $request)
