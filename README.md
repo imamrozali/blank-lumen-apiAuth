@@ -10,6 +10,7 @@
 - [4. Emails](#4-emails)
   - [4.1. auth/verify](#41-authverify)
   - [4.2. auth/psw-reset](#42-authpsw-reset)
+  - [4.3. auth/verify-email](#43-authverify-email)
 - [Bibliografía](#bibliografía)
 
 ---
