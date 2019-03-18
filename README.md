@@ -111,9 +111,9 @@ Rutas predefinidas en el proyecto, éstas relacionadas con la autenticación de 
 | GET    | /                                        |            | None                                                               | Closure          |            |
 | POST   | /auth/login                              |            | App\Http\Controllers\Auth\LoginController                          | METHOD NOT FOUND |            |
 | GET    | /auth/logout                             |            | App\Http\Controllers\Auth\LogoutController                         | METHOD NOT FOUND |            |
-| POST   | /auth/register                           |            | App\Http\Controllers\Auth\RegisterController                       | METHOD NOT FOUND |            |
-| POST   | /auth/register/unverified                |            | App\Http\Controllers\Auth\RegisterUnverifiedController             | METHOD NOT FOUND |            |
-| GET    | /auth/register/verify/{token}            |            | App\Http\Controllers\Auth\RegisterVerifyController                 | METHOD NOT FOUND |            |
+| POST   | /auth/register                           |            | App\Http\Controllers\Auth\Register\RegisterController              | METHOD NOT FOUND |            |
+| POST   | /auth/register/unverified                |            | App\Http\Controllers\Auth\Register\RegisterUnverifiedController    | METHOD NOT FOUND |            |
+| GET    | /auth/register/verify/{token}            |            | App\Http\Controllers\Auth\Register\RegisterVerifyController        | METHOD NOT FOUND |            |
 | POST   | /auth/password/forgotten                 |            | App\Http\Controllers\Auth\Password\PasswordForgottenController     | METHOD NOT FOUND |            |
 | GET    | /auth/password/verify/{token}            |            | App\Http\Controllers\Auth\Password\PasswordVerifyController        | METHOD NOT FOUND |            |
 | PUT    | /auth/password/reset                     |            | App\Http\Controllers\Auth\Password\PasswordResetController         | METHOD NOT FOUND |            |
