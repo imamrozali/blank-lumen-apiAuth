@@ -39,13 +39,17 @@ $router->group(['prefix' => 'auth', 'namespace' => 'Auth'], function () use ($ro
             $router->delete('two', 'UserEmailTwoController@destroy');
             $router->get('verify/{token}', 'UserEmailVerifyController@show');
         });
-        $router->get('name', 'UserNameController@show');
-        $router->put('name', 'UserNameController@update');
-        $router->delete('name', 'UserNameController@destroy');
+        $router->group(['prefix' => 'name'], function () use ($router) {
+            $router->get('/', 'UserNameController@show');
+            $router->put('/', 'UserNameController@update');
+            $router->delete('/', 'UserNameController@destroy');
+        });
+        $router->group(['prefix' => 'phone'], function () use ($router) {
+            $router->get('/', 'UserPhoneController@show');
+            $router->put('/', 'UserPhoneController@update');
+            $router->delete('/', 'UserPhoneController@destroy');
+        });
         $router->put('password', 'UserPasswordController');
-        $router->get('phone', 'UserPhoneController@show');
-        $router->put('phone', 'UserPhoneController@update');
-        $router->delete('phone', 'UserPhoneController@destroy');
     });
 });
 

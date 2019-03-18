@@ -127,10 +127,10 @@ Rutas predefinidas en el proyecto, éstas relacionadas con la autenticación de 
 | GET    | /auth/user/name                          |            | App\Http\Controllers\Auth\UserProfile\UserNameController           | show             |            |
 | PUT    | /auth/user/name                          |            | App\Http\Controllers\Auth\UserProfile\UserNameController           | update           |            |
 | DELETE | /auth/user/name                          |            | App\Http\Controllers\Auth\UserProfile\UserNameController           | destroy          |            |
-| PUT    | /auth/user/password                      |            | App\Http\Controllers\Auth\UserProfile\UserPasswordController       | METHOD NOT FOUND |            |
 | GET    | /auth/user/phone                         |            | App\Http\Controllers\Auth\UserProfile\UserPhoneController          | show             |            |
 | PUT    | /auth/user/phone                         |            | App\Http\Controllers\Auth\UserProfile\UserPhoneController          | update           |            |
 | DELETE | /auth/user/phone                         |            | App\Http\Controllers\Auth\UserProfile\UserPhoneController          | destroy          |            |
+| PUT    | /auth/user/password                      |            | App\Http\Controllers\Auth\UserProfile\UserPasswordController       | METHOD NOT FOUND |            |
 +--------+------------------------------------------+------------+--------------------------------------------------------------------+------------------+------------+
 ```
 
