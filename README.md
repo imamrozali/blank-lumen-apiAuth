@@ -59,7 +59,8 @@ Con SQLite:
 > php artisan migrate
 ```
 
-> **Resetear migraciones** (desarrollo)<br>
+Resetear migraciones (desarrollo)
+
 >_Para resetear la base de datos y hacer pruebas sin la necesidad de borrarla y volver a crearla_.
 
 ```bash
