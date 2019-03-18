@@ -134,7 +134,7 @@ Rutas predefinidas en el proyecto, éstas relacionadas con la autenticación de 
 +--------+------------------------------------------+------------+--------------------------------------------------------------------+------------------+------------+
 ```
 
-> **Info.** Los controladores son _Single Action Controllers_ y los middlewares se aplican en éstos y no en las rutas.
+> **Info.** Los controladores con la acción `METHOD NOT FOUND` son _Single Action Controllers_ y los middlewares se aplican en el método `__construct()` de éstos.
 
 # 4. Emails
 
