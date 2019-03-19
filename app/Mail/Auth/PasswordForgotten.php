@@ -44,7 +44,7 @@ class PasswordForgotten extends Mailable
 
         return $this
             ->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
-            ->subject(env('Password reset'))
+            ->subject('Password reset')
             ->view('emails.auth.psw-reset')
             ->with([
                 'username' => $username,

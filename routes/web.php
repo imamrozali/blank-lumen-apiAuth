@@ -37,7 +37,7 @@ $router->group(['prefix' => 'auth', 'namespace' => 'Auth'], function () use ($ro
             $router->get('two', 'UserEmailTwoController@show');
             $router->put('two', 'UserEmailTwoController@update');
             $router->delete('two', 'UserEmailTwoController@destroy');
-            $router->get('verify/{token}', 'UserEmailVerifyController@show');
+            $router->get('verify/{token}', 'UserEmailVerifyController');
         });
         $router->group(['prefix' => 'name'], function () use ($router) {
             $router->get('/', 'UserNameController@show');

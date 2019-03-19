@@ -34,7 +34,7 @@ class VerifyEmail extends Mailable
      */
     public function build()
     {
-        $username = $this->userVerification->user()->username;
+        $username = $this->userVerification->user()->firstOrFail()->username;
         $token    = $this->userVerification->token;
 
         if ($this->userVerification->email != null) {
@@ -45,8 +45,8 @@ class VerifyEmail extends Mailable
         
         return $this
             ->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
-            ->subject(env('E-mail verification'))
-            ->view('emails.auth.verify')
+            ->subject('E-mail verification')
+            ->view('emails.auth.verify-email')
             ->with([
                 'username' => $username,
                 'email'    => $email,

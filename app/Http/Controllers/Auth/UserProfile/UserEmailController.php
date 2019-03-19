@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Auth\UserProfile;
 
 use App\Http\Controllers\Controller;
-use App\Mail\Auth\VerifyAccount;
+use App\Mail\Auth\VerifyEmail;
 use App\UserVerification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 class UserEmailController extends Controller
 {
@@ -42,29 +44,31 @@ class UserEmailController extends Controller
     {
         $user = $request->user();
 
+        $request->request->add([
+            'current_email' => $user->email,
+            'email_two'     => $user->email_two
+        ]);
+
         $this->validate($request, [
             'email' => [
                 'required',
                 'email',
                 'max:255',
-                'confirmed',
+                'different:current_email',
+                'different:email_two',
                 Rule::unique('users')->ignore($user->id)
             ],
         ]);
 
-        $user->update($request['email']);
-
-        $token = new UserVerification([
-            'user_id' => $user->id,
-            'email'   => $request['email'],
-            'token'   => Str::random(60)
-        ]);
-        $token->save();
+        $token = UserVerification::updateOrCreate(
+            ['user_id' => $user->id, 'email_two' => null],
+            ['email' => $request['email'], 'token' => Str::random(60)]
+        );
         
-        Mail::to($user)->send(new VerifyEmail($token));
+        Mail::to($request['email'])->send(new VerifyEmail($token));
 
         return response()->json([
-            'message' => 'E-mail updated.'
+            'message' => 'E-mail send.'
         ], 201);
     }
 }

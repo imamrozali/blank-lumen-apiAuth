@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth\UserProfile;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
@@ -49,7 +50,9 @@ class UserController extends Controller
             ],
         ]);
 
-        $user->update($request['user']);
+        $user->update([
+            'username' => $request['username']
+        ]);
 
         return response()->json([
             'message' => 'Username updated.'
@@ -64,6 +67,8 @@ class UserController extends Controller
      */
     public function destroy(Request $request)
     {
+        $request->user()->token()->delete();
+        
         $user = $request->user();
         $user->delete();
 

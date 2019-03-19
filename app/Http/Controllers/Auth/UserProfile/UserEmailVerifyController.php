@@ -7,7 +7,7 @@ use App\UserVerification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class UserPasswordController extends Controller
+class UserEmailVerifyController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -40,7 +40,7 @@ class UserPasswordController extends Controller
         if ($userVerification->email) {
             $user->email = $userVerification->email;
         } else {
-            $user->email = $userVerification->email_two;
+            $user->email_two = $userVerification->email_two;
         }
         $user->save();
 

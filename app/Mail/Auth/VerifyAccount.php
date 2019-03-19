@@ -43,7 +43,7 @@ class VerifyAccount extends Mailable
         
         return $this
             ->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
-            ->subject(env('Account verification'))
+            ->subject('Account verification')
             ->view('emails.auth.verify')
             ->with([
                 'username' => $username,

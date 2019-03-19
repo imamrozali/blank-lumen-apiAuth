@@ -306,4 +306,4 @@ PACKAGIST (flipbox/lumen-generator). _A Lumen Generator You Are Missing_. < [htt
 <br>[Última consulta: 4 de marzo de 2019]
 
 STACKOVERFLOW. _Laravel Lumen Ensure JSON response_. < [https://stackoverflow.com/questions/37296654/laravel-lumen-ensure-json-response](https://stackoverflow.com/questions/37296654/laravel-lumen-ensure-json-response) >
-<br>[Última consulta: 6 de marzo de 2019]
+<br>[Última consulta: 19 de marzo de 2019]
