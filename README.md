@@ -73,6 +73,12 @@ Resetear migraciones (desarrollo)
 > php artisan passport:install
 ```
 
+Para purgar los _tokens de acceso_ caducados de la base de datos:
+
+```bash
+> php artisan passport:purge
+```
+
 
 ## 2.2. Servidor de desarrollo
 
