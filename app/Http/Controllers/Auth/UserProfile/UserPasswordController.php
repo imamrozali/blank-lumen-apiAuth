@@ -30,10 +30,12 @@ class UserPasswordController extends Controller
         $user = $request->user();
 
         $this->validate($request, [
-            'password' => 'required|string|min:6'
+            'password' => 'required|string|min:6|confirmed'
         ]);
 
-        $user->update(Hash::make($request['password']));
+        $user->update([
+            'password' => Hash::make($request['password'])
+        ]);
 
         return response()->json([
             'message' => 'Password updated.'

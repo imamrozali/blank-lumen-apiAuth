@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth\UserProfile;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class UserPhoneController extends Controller
 {
@@ -48,7 +49,9 @@ class UserPhoneController extends Controller
             ],
         ]);
 
-        $user->update($request['phone']);
+        $user->update([
+            'phone' => $request['phone']
+        ]);
 
         // TODO VERIFICAR
 
@@ -66,7 +69,9 @@ class UserPhoneController extends Controller
     public function destroy(Request $request)
     {
         $user = $request->user();
-        $user->update(['phone' => null]);
+        $user->update([
+            'phone' => null
+        ]);
 
         return response()->json([
             'message' => 'Phone deleted.'

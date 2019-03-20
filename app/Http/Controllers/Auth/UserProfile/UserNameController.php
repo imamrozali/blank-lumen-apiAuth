@@ -43,7 +43,9 @@ class UserNameController extends Controller
             'name' => 'required|string|min:3|max:15'
         ]);
 
-        $user->update($request['name']);
+        $user->update([
+            'name' => $request['name']
+        ]);
 
         return response()->json([
             'message' => 'Name updated.'
@@ -59,7 +61,9 @@ class UserNameController extends Controller
     public function destroy(Request $request)
     {
         $user = $request->user();
-        $user->update(['name' => null]);
+        $user->update([
+            'name' => null
+        ]);
 
         return response()->json([
             'message' => 'Name deleted.'
