@@ -131,7 +131,7 @@ Rutas predefinidas en el proyecto, éstas relacionadas con la autenticación de 
 | GET    | /auth/user/email/two                     |            | App\Http\Controllers\Auth\UserProfile\UserEmailTwoController       | show             |            |
 | PUT    | /auth/user/email/two                     |            | App\Http\Controllers\Auth\UserProfile\UserEmailTwoController       | update           |            |
 | DELETE | /auth/user/email/two                     |            | App\Http\Controllers\Auth\UserProfile\UserEmailTwoController       | destroy          |            |
-| GET    | /auth/user/email/verify/{token}          |            | App\Http\Controllers\Auth\UserProfile\UserEmailVerifyController    | show             |            |
+| GET    | /auth/user/email/verify/{token}          |            | App\Http\Controllers\Auth\UserProfile\UserEmailVerifyController    | METHOD NOT FOUND |            |
 | GET    | /auth/user/name                          |            | App\Http\Controllers\Auth\UserProfile\UserNameController           | show             |            |
 | PUT    | /auth/user/name                          |            | App\Http\Controllers\Auth\UserProfile\UserNameController           | update           |            |
 | DELETE | /auth/user/name                          |            | App\Http\Controllers\Auth\UserProfile\UserNameController           | destroy          |            |
