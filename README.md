@@ -311,5 +311,8 @@ PACKAGIST (dusterio/lumen-passport). _Making Laravel Passport work with Lumen_. 
 PACKAGIST (flipbox/lumen-generator). _A Lumen Generator You Are Missing_. < [https://packagist.org/packages/flipbox/lumen-generator](https://packagist.org/packages/flipbox/lumen-generator) >
 <br>[Última consulta: 4 de marzo de 2019]
 
+REGEX101. _Regular Expression `^([a-zA-Z_]+)(\d+)?$`_. < [https://regex101.com/](https://regex101.com/) >
+<br>[Última consulta: 21 de marzo de 2019]
+
 STACKOVERFLOW. _Laravel Lumen Ensure JSON response_. < [https://stackoverflow.com/questions/37296654/laravel-lumen-ensure-json-response](https://stackoverflow.com/questions/37296654/laravel-lumen-ensure-json-response) >
 <br>[Última consulta: 19 de marzo de 2019]

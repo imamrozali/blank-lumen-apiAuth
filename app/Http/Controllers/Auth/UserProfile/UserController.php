@@ -45,7 +45,8 @@ class UserController extends Controller
                 'required',
                 'string',
                 'min:3',
-                'max:50',
+                'max:15',
+                'regex:/^([a-zA-Z_]+)(\d+)?$/',
                 Rule::unique('users')->ignore($user->id)
             ],
         ]);
