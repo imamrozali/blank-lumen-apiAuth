@@ -296,6 +296,9 @@ LARAVEL. _Validation_. < [https://laravel.com/docs/5.8/validation](https://larav
 LARAVEL NEWS. _20 Laravel Eloquent Tips and Tricks_. < [https://laravel-news.com/eloquent-tips-tricks](https://laravel-news.com/eloquent-tips-tricks) >
 <br>[Última consulta: 13 de marzo de 2019]
 
+LUMEN. _Middleware_. < [https://lumen.laravel.com/docs/5.8/middleware](https://lumen.laravel.com/docs/5.8/middleware) >
+<br>[Última consulta: 22 de marzo de 2019]
+
 LUMEN. _Mail_. < [https://lumen.laravel.com/docs/5.8/mail](https://lumen.laravel.com/docs/5.8/mail) >
 <br>[Última consulta: 7 de marzo de 2019]
 
