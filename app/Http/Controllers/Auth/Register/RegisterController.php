@@ -39,7 +39,8 @@ class RegisterController extends Controller
                 'string',
                 'min:3',
                 'max:15',
-                'regex:/^([a-zA-Z_]+)(\d+)?$/',
+                'regex:/^([a-zA-Z_]+)(\d+)?$/i',
+                'regex:/^((?!('.env('AUTH_USERNAME_BLACKLIST').')).)*$/i',
                 'unique:users'
             ],
             'email'    => 'required|email|max:255|confirmed|unique:users',
