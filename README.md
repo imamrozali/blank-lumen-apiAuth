@@ -290,14 +290,17 @@ LARAVEL. _Eloquent: Relationships_. < [https://laravel.com/docs/5.8/controllers#
 LARAVEL. _Single Action Controllers_. < [https://laravel.com/docs/5.8/controllers#single-action-controllers](https://laravel.com/docs/5.8/controllers#single-action-controllers) >
 <br>[Última consulta: 5 de marzo de 2019]
 
+LARAVEL. _Validation_. < [https://laravel.com/docs/5.8/validation](https://laravel.com/docs/5.8/validation) >
+<br>[Última consulta: 22 de marzo de 2019]
+
 LARAVEL NEWS. _20 Laravel Eloquent Tips and Tricks_. < [https://laravel-news.com/eloquent-tips-tricks](https://laravel-news.com/eloquent-tips-tricks) >
 <br>[Última consulta: 13 de marzo de 2019]
 
-LUMEN. _The stunningly fast micro-framework by Laravel_. < [https://lumen.laravel.com/](https://lumen.laravel.com/) >
-<br>[Última consulta: 4 de marzo de 2019]
-
 LUMEN. _Mail_. < [https://lumen.laravel.com/docs/5.8/mail](https://lumen.laravel.com/docs/5.8/mail) >
 <br>[Última consulta: 7 de marzo de 2019]
+
+LUMEN. _The stunningly fast micro-framework by Laravel_. < [https://lumen.laravel.com/](https://lumen.laravel.com/) >
+<br>[Última consulta: 4 de marzo de 2019]
 
 MEDIUM (David Ngugi). _Setting up OAuth in Lumen using Laravel Passport_. < [https://medium.com/the-andela-way/setting-up-oauth-in-lumen-using-laravel-passport-2de9d007e0b0](https://medium.com/the-andela-way/setting-up-oauth-in-lumen-using-laravel-passport-2de9d007e0b0) >
 <br>[Última consulta: 8 de marzo de 2019]

@@ -46,8 +46,8 @@ class UserController extends Controller
                 'string',
                 'min:3',
                 'max:15',
-                'regex:/^([a-zA-Z_]+)(\d+)?$/i',
-                'regex:/^((?!('.env('AUTH_USERNAME_BLACKLIST').')).)*$/i',
+                'regex:/^([a-zA-Z_]+)(\d+)?$/',
+                'regex:/^((?!('.env('AUTH_USERNAME_BLACKLIST').')).)*$/',
                 Rule::unique('users')->ignore($user->id)
             ],
         ]);
