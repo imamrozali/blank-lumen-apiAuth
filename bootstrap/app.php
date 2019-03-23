@@ -34,6 +34,7 @@ $app->withEloquent();
 |
 */
 
+$app->configure('database');
 $app->configure('auth');
 $app->configure('mail');
 

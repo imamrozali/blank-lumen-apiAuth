@@ -281,6 +281,12 @@ Correo electrónico enviado a través de `Mail::to($user)->send(new PasswordForg
 SITIOINFO. _Título_. < [url](url) >
 <br>[Última consulta: fecha]
 
+LARAVEL. _Database Getting Started: Configuration (SQLite)_. < [https://laravel.com/docs/5.8/database#configuration](https://laravel.com/docs/5.8/database#configuration) >
+<br>[Última consulta: 23 de marzo de 2019]
+
+LARAVEL. _Database Migrations: Foreign Key Constraints_. < [https://laravel.com/docs/5.8/migrations#foreign-key-constraints](https://laravel.com/docs/5.8/migrations#foreign-key-constraints) >
+<br>[Última consulta: 23 de marzo de 2019]
+
 LARAVEL. _Eloquent: Getting Started_. < [https://laravel.com/docs/5.8/eloquent](https://laravel.com/docs/5.8/eloquent) >
 <br>[Última consulta: 13 de marzo de 2019]
 
