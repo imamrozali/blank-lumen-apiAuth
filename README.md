@@ -26,6 +26,27 @@
 
 La intención de este repositorio es la de ahorrarnos tiempo cada vez que queramos iniciar un proyecto **API** que requiera de autenticación de usuarios.
 
+**Puedes**:
+
+- Iniciar Sesión (email, nombre de usuario/ria, teléfono).
+  - Restricción para nombres de usuarios/rias.
+    - No más de 15 caracteres.
+    - Solo letras de la "a" o "A" a la "z" o "Z" y números (0-9).
+    - Se permite el guión bajo "_".
+    - Restricción de palabras dentro del nombre del usuario/ria: admin, etc.
+      - Se insertan en _.env_ y deben separarse por el carácter "|": `AUTH_USERNAME_BLACKLIST='admin|ilercapp|otras'`
+    - Sin espacios.
+- Cerrar Sesión.
+- Crear una cuenta de usuario/ria.
+  - Recibir email de verificación de cuenta.
+  - Reenviar email de verificación de cuenta, por si lo borraste sin querer.
+- Borrar la cuenta.
+- Ver/Modificar los datos del perfil del/la usuario/ria.
+  - Tratar cada uno de los datos _de forma independiente_.
+  - Enviar email de verificación cuando se insertan nuevos emails y éstos no se aplican hasta que no estén verificados.
+- Seguridad de acceso (middlewares).
+  - Autenticación (auth). Propio de Laravel y permite controlar.
+  - Verificación de cuenta.
 
 # 2. Instalación
 
